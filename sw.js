@@ -31,6 +31,7 @@ const ARCHIVOS = [
   't09.html',
   't10.html',
   't11.html',
+  'trucos.html',
   'fonts/KaTeX_AMS-Regular.woff2',
   'fonts/KaTeX_Caligraphic-Bold.woff2',
   'fonts/KaTeX_Caligraphic-Regular.woff2',

@@ -56,7 +56,7 @@ BLOQUE_ESTILO = {
     't10': ('Temas', 'var(--c6)'), 't11': ('Temas', 'var(--c6)'),
     'practicas': ('Prácticas y exámenes', 'var(--c7)'), 'examenes': ('Prácticas y exámenes', 'var(--c7)'),
     'demos': ('Practicar', 'var(--c8)'), 'autoevaluacion': ('Practicar', 'var(--c8)'), 'simulacros': ('Practicar', 'var(--c8)'),
-    'formulario': ('Repasar', 'var(--c0)'), 'glosario': ('Repasar', 'var(--c0)'), 'plan': ('Repasar', 'var(--c0)'),
+    'formulario': ('Repasar', 'var(--c0)'), 'glosario': ('Repasar', 'var(--c0)'), 'plan': ('Repasar', 'var(--c0)'), 'trucos': ('Repasar', 'var(--c0)'),
 }
 MAESTRO = 'termodinamica-aplicada-guia.html'
 
@@ -703,7 +703,7 @@ UNIDADES = [
     ('UD6 · Mezclas y combustión', ['t10', 't11']),
 ]
 ICONO = {'examen': 'E', 'practicas': 'PR', 'examenes': 'EX', 'autoevaluacion': 'AU', 'simulacros': 'SI',
-         'demos': 'DE', 'formulario': 'Σ', 'glosario': 'Aa', 'plan': '→', 'formulario1p': 'Σ1'}
+         'demos': 'DE', 'formulario': 'Σ', 'glosario': 'Aa', 'plan': '→', 'trucos': '✎', 'formulario1p': 'Σ1'}
 
 
 def paginas_html(pagina_de):
