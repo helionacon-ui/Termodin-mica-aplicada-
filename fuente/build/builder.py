@@ -273,7 +273,7 @@ def r_bloque(n, ctx):
     ctx['subs'] = subs
     cont = hijos(n['children'], ctx)
     intro = cuerpo(n['body'])
-    grupo, color = BLOQUE_ESTILO.get(bid, (grupo or 'Guía', color or '#2456d6'))
+    grupo, color = BLOQUE_ESTILO.get(bid, (grupo or 'Guía', color or '#6b4fbb'))
     badge = badge or ''
     cab = ''
     if titulo:
@@ -698,7 +698,7 @@ def pagina_maestra(secciones, res):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{TITULO}</title>
 <meta name="description" content="Guía de estudio de Termodinámica Aplicada (521102006): teoría desde cero, ejemplos, exámenes resueltos, simuladores y autoevaluación. Actualizada el {FECHA}.">
-<meta name="theme-color" content="#2456d6">
+<meta name="theme-color" content="#6b4fbb">
 <meta name="color-scheme" content="light dark">
 <link rel="manifest" href="manifest.json">
 <style>
@@ -769,7 +769,7 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(titulo_pag)} · {TITULO}</title>
 <meta name="description" content="Termodinámica Aplicada: {html.escape(titulo_pag)}. Actualizada el {FECHA}.">
-<meta name="theme-color" content="#2456d6">
+<meta name="theme-color" content="#6b4fbb">
 <meta name="color-scheme" content="light dark">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
@@ -841,7 +841,7 @@ def escribir_pwa(secciones_por_bloque):
         'scope': './',
         'display': 'standalone',
         'background_color': '#ffffff',
-        'theme_color': '#2456d6',
+        'theme_color': '#6b4fbb',
         'icons': [
             {'src': 'icon-192.png', 'sizes': '192x192', 'type': 'image/png', 'purpose': 'any maskable'},
             {'src': 'icon-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any maskable'},
@@ -850,7 +850,7 @@ def escribir_pwa(secciones_por_bloque):
     with open(os.path.join(SITE, 'manifest.json'), 'w', encoding='utf-8') as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
     for tam in (192, 512):
-        im = Image.new('RGB', (tam, tam), '#2456d6')
+        im = Image.new('RGB', (tam, tam), '#6b4fbb')
         d = ImageDraw.Draw(im)
         try:
             fuente = ImageFont.load_default(size=int(tam * 0.62))
