@@ -1,0 +1,612 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}[Scale=0.93]
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,margin=2.1cm,top=2.2cm,bottom=2.2cm]{geometry}
+\usepackage{xcolor}
+\definecolor{lila}{HTML}{6B4FBB}
+\definecolor{lilasuave}{HTML}{F2EEFB}
+\definecolor{ambar}{HTML}{9A6412}
+\definecolor{ambarsuave}{HTML}{FFF7E0}
+\usepackage[most,breakable]{tcolorbox}
+\newtcolorbox{resbox}{colback=lilasuave,colframe=lila,title={Resultado},fonttitle=\bfseries,breakable,boxrule=0.6pt}
+\newtcolorbox{ojobox}[1]{colback=ambarsuave,colframe=ambar,title={Ojo: #1},fonttitle=\bfseries,breakable,boxrule=0.6pt}
+\newtcolorbox{antesbox}{colback=gray!6,colframe=gray!55,title={Antes de empezar},fonttitle=\bfseries,breakable,boxrule=0.6pt}
+\usepackage{enumitem}
+\usepackage[bookmarksnumbered,hidelinks]{hyperref}
+\usepackage{ocgx2}
+\hypersetup{pdftitle={Exámenes resueltos de Termodinámica Aplicada},pdfauthor={Guía de estudio}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Exámenes resueltos}\\[4pt]
+{\large Termodinámica Aplicada · Grado en Ingeniería Biomédica · UPCT}
+\end{center}
+\vspace{4pt}
+\noindent Los enunciados son resúmenes fieles de los problemas del material; los datos de tabla son los de la solución de referencia. Cada problema tiene una resolución de la guía, verificada con código, y las erratas de la solución de referencia van con su nota «Ojo:».
+
+\noindent\textbf{Cómo usar este PDF.} Los enunciados se ven siempre. Cada solución está en una capa
+oculta: en el panel de capas del visor (en Adobe Acrobat, Ver › Mostrar u ocultar › Árbol de navegación › Capas)
+activa la solución que quieras ver. Si el visor no tiene panel de capas, las soluciones no se muestran.
+
+\section{Sin fecha en el material}
+
+\subsection{Cilindro-émbolo con agua: calentamiento, expansión y posibilidad}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 3 puntos · Temas: Agua, Sistemas cerrados, Entropía}\par\medskip
+
+0,25 kg de agua a 80 °C ocupan 0,5 L en un cilindro-émbolo. El proceso 1→2 es isobaro hasta vapor saturado, con 500 kJ de energía eléctrica aportada. El 2→3 es politrópico hasta V₃ = 3V₂ y P₃ = 6 kPa. Pide: n, W de cada proceso, Q, ΔS, si el proceso global es posible con un foco a 100 °C, y el diagrama p-v.
+
+\begin{ocg}{Solucion: Cilindro-embolo con agua: calentamiento, expansion y posibilidad}{sol-ex-sf-agua-cilindro}{off}
+\begin{antesbox}
+Estado 1 con v₁ = V₁/m = 0,002 m³/kg: está casi en líquido (mezcla con x ≈ 0,0003). La presión de 1→2 es P$_{sat}$(80 °C) = 47,39 kPa. Trabajo de frontera con P·ΔV; la energía eléctrica es trabajo entrante.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Proceso 1→2 (isobaro).}\par
+Estado 2: vapor saturado a 47,39 kPa. Volumen V₂ = 0,85175 m³ (la solución de referencia pone 0,85115).  \[W_{12,\text{frontera}} = 47{,}39\,(0{,}85175 - 0{,}0005) = 40{,}34\ \text{kJ}\]   \[W_{12} = 40{,}34 - 500 = -459{,}66\ \text{kJ} \;(\text{la energía eléctrica entra})\]  Con  $U_2 - U_1 = 536{,}7$  kJ:  $Q_{12} = \Delta U + W = 536{,}7 - 459{,}66 = 77{,}0$  kJ.
+
+\par\medskip\noindent\textbf{Proceso 2→3 (politrópico).}\par
+Se obtiene n = 1,881 con  $V_3 = 3V_2$  y  $P_3 = 6$  kPa:  $n = \ln(P_2/P_3)/\ln(V_3/V_2) = \ln(47{,}39/6)/\ln 3 = 1{,}881$ .  \[W_{23} = \frac{P_3V_3 - P_2V_2}{1 - n} = \frac{6\cdot 2{,}55525 - 47{,}39\cdot 0{,}85175}{1 - 1{,}881} = 28{,}41\ \text{kJ}\]  El título del estado 3 es x₃ = 0,43053, con u₃ = 1130,33 kJ/kg.  $\Delta U_{23} = -337{,}97$  kJ y  $Q_{23} = \Delta U_{23} + W_{23} = -309{,}56$  kJ.
+
+\par\medskip\noindent\textbf{Entropía y posibilidad.}\par
+$\Delta S_{\text{global}} = 0{,}7015$  kJ/K. Con un foco a 373 K,  $S_{\text{gen}} \approx 1{,}325$  kJ/K > 0: el proceso global es posible.
+
+\begin{resbox}
+n ≈ 1,881; W₁₂ = −459,66 kJ (con la energía eléctrica); Q₁₂ ≈ 77,0 kJ; W₂₃ ≈ 28,41 kJ; Q₂₃ ≈ −309,56 kJ; ΔS ≈ 0,7015 kJ/K; S$_{gen}$ ≈ 1,325 kJ/K (posible).
+\end{resbox}
+
+\begin{ojobox}{W₁₂ (aritmética)}
+La solución de referencia escribe W₁₂ = −459,61 kJ. El resultado es 40,34 − 500 = −459,66 kJ, y por eso Q₁₂ = 77,02 kJ y no 77,07.
+\end{ojobox}
+
+\begin{ojobox}{Redondeo del título}
+La solución de referencia redondea x₃ a 0,4305 antes de calcular u₃. Con x₃ = 0,43053 se obtiene u₃ = 1130,33 kJ/kg (no 1130,26). El efecto es pequeño, pero conviene conservar cifras.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Turbina de aire con difusor isentrópico}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 3 puntos · Temas: Gases ideales, Sistemas abiertos, Entropía, Turbinas y gas}\par\medskip
+
+Aire entra a una turbina a 800 °C, 3 bar y 100 m/s, con ṁ = 18 kg/s y potencia de salida 3600 kW. Sale con c₂ = 150 m/s. Un difusor isentrópico lleva el aire a c₃ = 10 m/s y 1 bar. Pide T₂, P₂ y Ṡ$_{gen}$ de la turbina.
+
+\begin{ocg}{Solucion: Turbina de aire con difusor isentropico}{sol-ex-sf-turbina}{off}
+\begin{antesbox}
+Balance de energía en la turbina, luego el difusor como proceso isentrópico (s₃ = s₂). Tablas de aire A-22.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Temperatura de salida T₂.}\par
+Con h₁ = 1129,83 kJ/kg (A-22 a 1073 K):  \[h_2 = h_1 + \frac{c_1^2 - c_2^2}{2000} - \frac{\dot W}{\dot m} = 1129{,}83 - 6{,}25 - 200 = 923{,}58\ \text{kJ/kg}\]  Interpolando en A-22: T₂ = 891,6 K ≈ 618,5 °C, con s°₂ = 2,83806.
+
+\par\medskip\noindent\textbf{Presión P₂ con el difusor.}\par
+Difusor isentrópico:  $h_3 = h_2 + \frac{c_2^2 - c_3^2}{2000} = 934{,}78$  kJ/kg, con T₃ = 901,65 K y s°₃ = 2,85059. Como s₃ = s₂:  \[\ln\frac{P_3}{P_2} = \frac{s^\circ_3 - s^\circ_2}{R} = \frac{0{,}01253}{0{,}287} = 0{,}04367 \;\Rightarrow\; P_2 = 0{,}957\ \text{bar}\]
+
+\par\medskip\noindent\textbf{Generación de entropía.}\par
+\[\dot S_{\text{gen}} = \dot m\left[(s^\circ_2 - s^\circ_1) - R\ln\frac{P_2}{P_1}\right] = 18\left[(-0{,}21046) + 0{,}32795\right] = 2{,}11\ \text{kW/K}\]
+
+\begin{resbox}
+T₂ ≈ 891,6 K (618,5 °C); P₂ ≈ 0,957 bar; Ṡ$_{gen}$ ≈ 2,11 kW/K > 0: proceso posible.
+\end{resbox}
+
+\begin{ojobox}{P₂ (lectura de la tabla)}
+La solución de referencia da P₂ = 0,951 bar. Con los datos de A-22 y el difusor, P₂ = 0,957 bar.
+\end{ojobox}
+
+\begin{ojobox}{Ṡ$_{gen}$ con P₂ correcto}
+Como la solución usa P₂ = 0,951, obtiene 2,12 kW/K. Con P₂ = 0,957 bar sale 2,11 kW/K.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Depósito rígido de agua: calentamiento eléctrico y posibilidad}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 3 puntos · Temas: Agua, Sistemas cerrados, Entropía}\par\medskip
+
+Un depósito rígido de 1 L contiene 0,25 kg de agua a 25 °C. Con 50 kJ de energía eléctrica se calienta hasta 360 °C; luego se calienta hasta 28 MPa. El foco está a 5 °C. Pide Q, W, ΔS y S$_{gen}$ de cada proceso, y dibujar p-v, T-v y T-s.
+
+\begin{ocg}{Solucion: Deposito rigido de agua: calentamiento electrico y posibilidad}{sol-ex-sf-tanque-rigido}{off}
+\begin{antesbox}
+Volumen constante: W de frontera = 0; la energía eléctrica sí es trabajo. Cuidado: 28 MPa es mayor que P$_{c}$ = 22,06 MPa, así que no hay mezcla en el estado 3.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Proceso 1→2 (isócoro con energía eléctrica).}\par
+\[\Delta U_{12} = 470{,}35\ \text{kJ} \qquad Q_{12} = \Delta U_{12} - W_{\text{eléc}} = 470{,}35 - (-50) = 420{,}35\ \text{kJ}\]   \[\Delta S_{12} = 1{,}0053\ \text{kJ/K} \qquad S_{\text{gen},12} = \Delta S_{12} - \frac{Q_{12}}{T_b} = 1{,}0053 - \frac{420{,}35}{278} = -0{,}507\ \text{kJ/K}\]  Como S$_{gen}$ < 0, el proceso con esos calores no es posible con el foco a 5 °C.
+
+\par\medskip\noindent\textbf{Proceso 2→3 (isócoro hasta 28 MPa).}\par
+\[\Delta U_{23} = Q_{23} = 64{,}29\ \text{kJ} \qquad \Delta S_{23} = 0{,}0991\ \text{kJ/K} \qquad S_{\text{gen},23} = 0{,}0991 - \frac{64{,}29}{278} = -0{,}132\ \text{kJ/K}\]  Otra vez negativo: imposible con ese foco.
+
+\begin{resbox}
+Proceso 1→2: Q₁₂ ≈ 420,35 kJ, ΔS₁₂ ≈ 1,0053 kJ/K, S$_{gen}$,12 ≈ −0,507 kJ/K (imposible). Proceso 2→3: Q₂₃ ≈ 64,29 kJ, S$_{gen}$,23 ≈ −0,132 kJ/K (imposible).
+\end{resbox}
+
+\begin{ojobox}{Errata de la solución de referencia}
+La solución escribe S$_{gen}$,12 = −0,707 kJ/K. El valor correcto con sus propios datos es −0,507 kJ/K.
+\end{ojobox}
+
+\begin{ojobox}{Concepto: 28 MPa es supercrítico}
+A 28 MPa no hay mezcla líquido-vapor: el agua está por encima de la presión crítica (22,06 MPa). El estado 3 se lee de la tabla de agua a esa presión, no comparando v con v$_{g}$. Los valores de la tabla a 28 MPa no están en esta guía; cómpruebalos en tu tabla completa.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Intercambiador aire-R-134a y tobera adiabática}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 3 puntos · Temas: Sistemas abiertos, Refrigeración, Gases ideales, Refrigerante R-134a}\par\medskip
+
+Aire entra a 25 °C y sale a 20 °C a 1,5 bar, cediendo calor a R-134a que entra a 0,14 MPa con x = 0,30 y sale a 10 °C a la misma presión. Después el aire pasa por una tobera adiabática hasta 1 bar, con c₂ = 40 m/s, A₂ = 90 cm² y A₃ = 60 cm². Pide ṁ de aire, potencia cedida, ṁ de refrigerante, c₃ y T₃.
+
+\begin{ocg}{Solucion: Intercambiador aire-R-134a y tobera adiabatica}{sol-ex-sf-tobera}{off}
+\begin{antesbox}
+Intercambiador aislado: el calor cedido por el aire es el absorbido por el refrigerante. Tobera: balance de energía con c₁ pequeña y sin trabajo.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Caudal de aire y calor cedido.}\par
+\[v_{a2} = \frac{RT}{P} = \frac{0{,}287\cdot 293{,}15}{150} = 0{,}5606\ \text{m}^3/\text{kg} \qquad \dot m_a = \frac{A_2c_2}{v_{a2}} = \frac{0{,}009\cdot 40}{0{,}5606} = 0{,}6422\ \text{kg/s}\]   \[\dot Q_{\text{aire}} = \dot m_a c_p (T_2 - T_1) = 0{,}6422\cdot 1\cdot(-5) = -3{,}21\ \text{kW}\]
+
+\par\medskip\noindent\textbf{Caudal de refrigerante.}\par
+$h_{R1} = 88{,}85$  kJ/kg (x = 0,30 a 1,4 bar) y  $h_{R2} = 260{,}43$  kJ/kg (vapor sobrecalentado a 1,4 bar y 10 °C):  \[\dot m_R = \frac{3{,}21}{260{,}43 - 88{,}85} = 0{,}01871\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Tobera.}\par
+\[c_3 \approx 89{,}0\ \text{m/s} \qquad T_3 \approx 16{,}8\ \text{°C}\]  La temperatura sale del balance  $c_p(T_2 - T_3) = (c_3^2 - c_2^2)/2000$  con T₂ = 20 °C:  $T_3 = 20 - 3{,}16 = 16{,}8$  °C.
+
+\begin{resbox}
+ṁ$_{aire}$ ≈ 0,6422 kg/s; potencia cedida ≈ 3,21 kW; ṁ$_{R}$ ≈ 0,01871 kg/s; c₃ ≈ 89,0 m/s; T₃ ≈ 16,8 °C.
+\end{resbox}
+
+\begin{ojobox}{Temperatura de salida de la tobera}
+La solución de referencia da T₃ = 289,87 K (16,72 °C) a partir de un redondeo de 3,2559 K. Con el balance de la tobera, la caída es de 3,16 K y T₃ ≈ 16,8 °C.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Ciclo Brayton de aire: compresor, intercambiador y turbina}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 3 puntos · Temas: Turbinas y gas, Gases ideales, Sistemas abiertos, Entropía}\par\medskip
+
+Un compresor toma aire a 0,95 bar y 22 °C; el aire sale por el intercambiador a T₄ = 427 °C; la turbina lo expulsa a 0,95 bar y 122 °C. ṁ = 10 kg/s, c₁ = 10 m/s, Q̇$_{in}$ = 1,13 MW. Pide ρ₁, A₁, W$_{turbina}$, T₃ y Δs₃₄.
+
+\begin{ocg}{Solucion: Ciclo Brayton de aire: compresor, intercambiador y turbina}{sol-ex-sf-brayton}{off}
+\begin{antesbox}
+Datos de aire con R = 0,287 kJ/(kg·K) y tablas A-22. Balances en régimen estacionario en cada equipo.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Entrada.}\par
+\[v_1 = \frac{RT_1}{P_1} = \frac{0{,}287\cdot 295{,}15}{95} = 0{,}8912\ \text{m}^3/\text{kg} \qquad \rho_1 = 1{,}122\ \text{kg/m}^3\]   \[A_1 = \frac{\dot m v_1}{c_1} = \frac{10\cdot 0{,}8912}{10} = 0{,}891\ \text{m}^2\]
+
+\par\medskip\noindent\textbf{Turbina.}\par
+Con h₄ = 713,27 kJ/kg (700 K) y h₂ = 395,93 kJ/kg (395 K) de A-22:  \[\dot W_T = \dot m(h_4 - h_2) = 10\,(713{,}27 - 395{,}93) = 3173\ \text{kW} = 3{,}17\ \text{MW}\]
+
+\par\medskip\noindent\textbf{Temperatura T₃.}\par
+Del balance de energía en el intercambiador:  $h_3 = 600{,}27$  kJ/kg,  $T_3 = 593{,}6$  K ≈ 320,4 °C.
+
+\par\medskip\noindent\textbf{Variación de entropía en la turbina.}\par
+\[\Delta s_{34} = s^\circ_4 - s^\circ_3 = 2{,}52277 - 2{,}39770 = 0{,}125\ \text{kJ/(kg·K)}\]
+
+\begin{resbox}
+ρ₁ ≈ 1,122 kg/m³; A₁ ≈ 0,891 m²; Ẇ$_{T}$ ≈ 3,17 MW; T₃ ≈ 320,4 °C; Δs₃₄ ≈ 0,125 kJ/(kg·K).
+\end{resbox}
+
+\begin{ojobox}{Resta de entropías}
+La solución de referencia da Δs₃₄ = 0,175. La resta correcta es 2,52277 − 2,39770 = 0,125 kJ/(kg·K).
+\end{ojobox}
+
+\begin{ojobox}{Unidades de la potencia}
+La solución escribe la potencia de la turbina en MW con el valor en kW. 3173 kW = 3,17 MW.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Depósito de 50 L con R-134a: descarga por vapor y calentamiento}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 3 puntos · Temas: Refrigerante R-134a, Sistemas cerrados, Entropía}\par\medskip
+
+Un depósito rígido de 0,05 m³ contiene R-134a a 24 °C con título x₁ = 0,05. Por la válvula superior sale vapor saturado a presión y temperatura constantes. Entran 0,5 kW por las paredes. Se cierra cuando se evapora la última gota de líquido. Pide las masas inicial y final, el tiempo, el calor para evaporar todo en 10 min y S$_{gen}$.
+
+\begin{ocg}{Solucion: Deposito de 50 L con R-134a: descarga por vapor y calentamiento}{sol-ex-sf-tanque-r134a}{off}
+\begin{antesbox}
+Tabla de saturación de R-134a a 24 °C. Cada kilogramo que sale lleva la entalpía h$_{g}$; el proceso ocurre a T constante.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Masas.}\par
+\[m_1 = \frac{V}{v_1} \approx 21{,}1\ \text{kg} \qquad m_2 = \frac{V}{v_g} \approx 1{,}58\ \text{kg} \qquad m_e = 19{,}5\ \text{kg}\]
+
+\par\medskip\noindent\textbf{Calor y tiempo.}\par
+\[Q = m_2u_2 - m_1u_1 + m_eh_g \approx 3559\ \text{kJ} \qquad t = \frac{Q}{0{,}5\ \text{kW}} = \frac{3559}{0{,}5} = 7119\ \text{s} \approx 118{,}6\ \text{min}\]
+
+\par\medskip\noindent\textbf{Potencia para 10 min.}\par
+\[\dot W_{\text{res}} = \frac{3559\ \text{kJ}}{600\ \text{s}} = 5{,}93\ \text{kW}\]
+
+\par\medskip\noindent\textbf{Generación de entropía.}\par
+El proceso ocurre a T ≈ 297 K sin diferencia de temperatura apreciable:  $S_{\text{gen}} \approx 0$  dentro de la precisión de la tabla.
+
+\begin{resbox}
+m₁ ≈ 21,1 kg; m₂ ≈ 1,58 kg; t ≈ 118,6 min; potencia de la resistencia ≈ 5,93 kW; S$_{gen}$ ≈ 0.
+\end{resbox}
+
+\begin{ojobox}{Valor negativo de S$_{gen}$}
+La solución de referencia da −0,00028 kJ/K. Un valor negativo no es físico: la respuesta correcta es S$_{gen}$ ≈ 0 dentro de la precisión de la tabla. Además, la solución escribe kJ/(kg·K) donde el enunciado pide kJ/K.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Compresor de dos etapas con intercooler}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 2 puntos · Temas: Gases ideales, Sistemas abiertos, Entropía}\par\medskip
+
+Aire con caudal volumétrico de 0,861 m³/s a 100 kPa y 300 K se comprime hasta 1000 kPa en dos etapas. El intercooler enfría hasta 300 K a 300 kPa. Rendimiento del primer compresor η₁ = 0,9, del segundo 1. Pide ṁ, T a la salida del compresor 1, calor del intercooler, T a la salida del compresor 2 y trabajos.
+
+\begin{ocg}{Solucion: Compresor de dos etapas con intercooler}{sol-ex-sf-compresor}{off}
+\begin{antesbox}
+Tabla A-22 de aire con interpolación en p$_{r}$. Rendimiento isentrópico en el primer compresor.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Caudal másico y compresor 1.}\par
+\[\dot m = \frac{0{,}861}{0{,}861} = 1{,}000\ \text{kg/s} \qquad P_{r,c} = 4{,}158 \Rightarrow h_{cs} = 411{,}26\ \text{kJ/kg}\]   \[h_c = h_1 + \frac{h_{cs} - h_1}{0{,}9} = 423{,}60\ \text{kJ/kg} \Rightarrow T_c = 422{,}30\ \text{K} = 149{,}15\ \text{°C}\]
+
+\par\medskip\noindent\textbf{Intercooler y compresor 2.}\par
+Intercooler:  $\dot Q = \dot m(h_d - h_c) = -123{,}41$  kW (cedido). Compresor 2 ideal:  $P_{r2} = (1000/300)\cdot 1{,}386 = 4{,}620$  →  $h_2 = 423{,}80$  kJ/kg,  $T_2 = 422{,}49$  K = 149,34 °C.
+
+\par\medskip\noindent\textbf{Trabajos.}\par
+\[\dot W_1 = 123{,}41\ \text{kW} \qquad \dot W_2 = 123{,}61\ \text{kW}\]
+
+\begin{resbox}
+ṁ = 1,000 kg/s; T$_{c}$ ≈ 422,3 K; Q$_{intercooler}$ ≈ −123,4 kW; T₂ ≈ 422,5 K; W₁ ≈ 123,4 kW; W₂ ≈ 123,6 kW.
+\end{resbox}
+
+\begin{ojobox}{Interpolación de T$_{c}$}
+La solución de referencia da T$_{c}$ = 423,298 K. La interpolación en A-22 da 422,30 K.
+\end{ojobox}
+
+\begin{ojobox}{Temperatura de salida del compresor 2}
+La solución de referencia da 423,47 K. El valor correcto es 422,49 K.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Intercambiador R-134a-agua: calor, caudal de agua y posibilidad}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 2 puntos · Temas: Refrigerante R-134a, Sistemas abiertos, Entropía}\par\medskip
+
+R-134a entra a 7 bar y 40 °C y sale a 6 bar y 20 °C con ṁ = 0,08 kg/s. Agua entra a 10 °C y 1 bar con caudal de 684,26 L/h, c$_{p}$ = 4,18 kJ/(kg·K). Pide Q, ṁ de agua, T de salida del agua, S$_{gen}$ y los diagramas T-s y p-h.
+
+\begin{ocg}{Solucion: Intercambiador R-134a-agua: calor, caudal de agua y posibilidad}{sol-ex-sf-intercambiador}{off}
+\begin{antesbox}
+Intercambiador aislado: lo que cede el R-134a lo absorbe el agua. S$_{gen}$ = suma de variaciones de entropía de los dos fluidos.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Calor absorbido.}\par
+\[\dot Q = \dot m_R(h_3 - h_4) = 0{,}08\,(275{,}93 - 77{,}27) = 15{,}89\ \text{kW}\]
+
+\par\medskip\noindent\textbf{Caudal de agua.}\par
+\[\dot m_w = \frac{\dot V}{v_f(10\ \text{°C})} = \frac{1{,}9007\cdot 10^{-4}}{1{,}0003\cdot 10^{-3}} = 0{,}190\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Temperatura de salida.}\par
+\[T_2 = 10 + \frac{15{,}89}{0{,}190\cdot 4{,}18} = 10 + 20{,}0 = 30{,}0\ \text{°C} = 303{,}16\ \text{K}\]
+
+\par\medskip\noindent\textbf{Generación de entropía.}\par
+\[\dot S_{\text{gen}} = \dot m_R(s_4 - s_3) + \dot m_w(s_2 - s_1) = 0{,}08(0{,}2929 - 0{,}9539) + 0{,}190(0{,}4369 - 0{,}1510) = +0{,}00145\ \text{kW/K}\]
+
+\begin{resbox}
+Q ≈ 15,89 kW; ṁ$_{w}$ ≈ 0,190 kg/s; T₂ ≈ 30,0 °C; Ṡ$_{gen}$ ≈ +0,00145 kW/K > 0: el proceso es posible.
+\end{resbox}
+
+\begin{ojobox}{Caudal de agua: volumen específico}
+La solución escribe v = 1,0432·10⁻³ m³/kg, que corresponde a agua a unos 100 °C. A 10 °C, v$_{f}$ = 1,0003·10⁻³ m³/kg, y el caudal es 0,190 kg/s.
+\end{ojobox}
+
+\begin{ojobox}{Temperatura del agua de salida}
+La solución da 303,02 K = 30,02 °C. Según su propio balance, 303,02 K son 29,87 °C; el valor correcto es 303,16 K = 30,0 °C.
+\end{ojobox}
+
+\begin{ojobox}{Signo de S$_{gen}$ (grave)}
+La solución escribe Ṡ$_{gen}$ = −0,1072 kW/K y concluye que el proceso no es posible. Sus propios datos dan +0,00145 kW/K. El proceso es posible.
+\end{ojobox}
+
+\begin{ojobox}{Vapor sobrecalentado, no líquido}
+La solución dice que a 7 bar con T₃ > T$_{sat}$ el fluido es «líquido sobrecalentado». Es vapor sobrecalentado. A 6 bar con T₄ < T$_{sat}$, el estado 4 es líquido subenfriado (h₄ ≈ h$_{f}$(20 °C) ≈ 77,27 kJ/kg).
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Ciclo reversible con aire: expansión isoterma, compresión adiabática e isobara}
+\noindent\textit{Examen: Sin fecha en el material · Puntuación: 2 puntos · Temas: Gases ideales, Entropía, Segundo principio, Sistemas cerrados}\par\medskip
+
+Aire en un ciclo reversible: 1→2 expansión isoterma desde 300 K, 400 kPa y 0,3 m³ hasta 150 kPa; 2→3 compresión adiabática reversible hasta P₃ = P₁; 3→1 compresión isobara. Pide T₃, volúmenes, W y Q de cada proceso, y si es un ciclo de potencia o inverso, con COP.
+
+\begin{ocg}{Solucion: Ciclo reversible con aire: expansion isoterma, compresion adiabatica e isobara}{sol-ex-sf-ciclo-aire}{off}
+\begin{antesbox}
+Masa con la ley de gas ideal. Isoterma: W = Q = P₁V₁ ln(P₁/P₂). Tabla A-22 para el proceso adiabático.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Estados.}\par
+\[m = \frac{P_1V_1}{RT_1} = 1{,}394\ \text{kg} \qquad v_1 = 0{,}2153\ \text{m}^3/\text{kg} \qquad V_2 = 0{,}800\ \text{m}^3\]
+
+\par\medskip\noindent\textbf{Proceso 2→3.}\par
+Con  $P_{r3} = P_{r2}P_3/P_2 = 3{,}696$  en A-22:  $T_3 = 396{,}6$  K. Entonces  $V_3 = m\,v_3 = 0{,}3966$  m³.
+
+\par\medskip\noindent\textbf{Trabajos y calores (kJ).}\par
+\[W_{12} = Q_{12} = P_1V_1\ln\frac{P_1}{P_2} = 117{,}7 \qquad W_{23} = -m c_v(T_3 - T_1) = -96{,}7 \quad (Q_{23} = 0)\]   \[W_{31} = P_3(V_1 - V_3) = -38{,}6 \qquad Q_{31} = m c_v(T_1 - T_3) + W_{31} = -135{,}3\]
+
+\par\medskip\noindent\textbf{Tipo de ciclo.}\par
+$W_{\text{neto}} = 117{,}7 - 96{,}7 - 38{,}6 = -17{,}6$  kJ < 0: ciclo inverso.  $\mathrm{COP}_{\text{ref}} = 117{,}7/17{,}6 = 6{,}7$  y  $\mathrm{COP}_{\text{bomba}} = 135{,}3/17{,}6 = 7{,}7$ .
+
+\begin{resbox}
+T₃ ≈ 396,6 K; V₃ ≈ 0,3966 m³; W₁₂ = Q₁₂ ≈ 117,7 kJ; W₂₃ ≈ −96,7 kJ; W₃₁ ≈ −38,6 kJ; W$_{neto}$ ≈ −17,6 kJ: ciclo inverso, COP$_{ref}$ ≈ 6,7, COP$_{bomba}$ ≈ 7,7.
+\end{resbox}
+
+\begin{ojobox}{Volumen V₃}
+La solución de referencia da V₃ = 0,3907 m³. Con v₃ = RT₃/P₃ = 0,287·396,6/400 = 0,2846 m³/kg y m = 1,394 kg: V₃ = 0,3966 m³.
+\end{ojobox}
+
+\begin{ojobox}{Solución incompleta}
+La solución de referencia del material queda incompleta en la última página. La resolución completa es la de esta guía.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\section{Segundo parcial, 20-12-2024}
+
+\subsection{Mezcla adiabática de aire húmedo saturado con aire a 31 °C}
+\noindent\textit{Examen: Segundo parcial, 20-12-2024 · Puntuación: 3 puntos · Temas: Psicrometría, Sistemas abiertos, Mezclas}\par\medskip
+
+Aire húmedo saturado a 14 °C con caudal de 50 m³/min se mezcla adiabáticamente con aire a 31 °C con T$_{bh}$ = 25 °C y 20 m³/min, a 1 atm. Pide ω₂, los caudales de aire seco de entrada y salida, ω₃, HR₃ y T$_{bs}$₃. (Enunciado resumido; los apartados se indican según la transcripción.)
+
+\begin{ocg}{Solucion: Mezcla adiabatica de aire humedo saturado con aire a 31  gradosC}{sol-ex-sp-psicro-mezcla}{off}
+\begin{antesbox}
+Aire seco y agua se conservan en la mezcla; la energía también. Estado 1 saturado: su ω sale de p$_{g}$(14 °C). Estado 2: la T$_{bh}$ da ω₂ con el saturador adiabático. Presión total 1,01325 bar.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Estado 1.}\par
+\[p_{g}(14\,^{\circ}\text{C}) = 1{,}598\ \text{kPa} \qquad \omega_1 = 0{,}622\,\frac{1{,}598}{101{,}325 - 1{,}598} = 0{,}00997\ \text{kg/kg}\]   \[v_{a1} = \frac{R\,T}{P - p_v} = \frac{0{,}287\cdot 287{,}15}{99{,}727} = 0{,}8264\ \text{m}^3/\text{kg} \qquad \dot m_{a1} = \frac{50/60}{0{,}8264} = 1{,}008\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Estado 2.}\par
+Con T$_{bh}$ = 25 °C:  $\omega' = 0{,}622\,p_g(25)/(P - p_g) = 0{,}622\cdot 3{,}169/98{,}156 = 0{,}02008$ . El balance del saturador da  $\omega_2 = 0{,}01749$  kg/kg, con  $\mathrm{HR}_2 = 61{,}6\,\%$ . Caudal:  $\dot m_{a2} = (20/60)/0{,}8857 = 0{,}376$  kg/s.
+
+\par\medskip\noindent\textbf{Mezcla.}\par
+\[\dot m_{a3} = \dot m_{a1} + \dot m_{a2} = 1{,}384\ \text{kg/s}\]   \[\omega_3 = \frac{1{,}008\cdot 0{,}00997 + 0{,}376\cdot 0{,}01749}{1{,}384} = 0{,}01201\ \text{kg/kg}\]   \[h_1 = 39{,}27,\quad h_2 = 75{,}95 \Rightarrow h_3 = \frac{1{,}008\cdot 39{,}27 + 0{,}376\cdot 75{,}95}{1{,}384} = 49{,}24\ \text{kJ/kg}\]
+
+\par\medskip\noindent\textbf{Temperatura y humedad relativa de la mezcla.}\par
+\[T_3 = \frac{h_3 - 2501\,\omega_3}{1{,}006 + 1{,}86\,\omega_3} = 18{,}7\ \text{°C} \qquad p_{v3} = \frac{0{,}01201\cdot 101{,}325}{0{,}622 + 0{,}01201} = 1{,}918\ \text{kPa}\]   \[\mathrm{HR}_3 = \frac{1{,}918}{p_g(18{,}7\,^{\circ}\text{C})} \approx 89\ \%\]
+
+\begin{resbox}
+ω₂ ≈ 0,01749 kg/kg (HR₂ ≈ 61,6 \%); ṁ$_{a1}$ ≈ 1,008 kg/s; ṁ$_{a2}$ ≈ 0,376 kg/s; ṁ$_{a3}$ ≈ 1,384 kg/s; ω₃ ≈ 0,01201 kg/kg; T₃ ≈ 18,7 °C; HR₃ ≈ 89 \%.
+\end{resbox}
+
+\begin{ojobox}{Presión: 1,01325 bar, no 1 bar}
+La solución de referencia usa (1 − p$_{g}$) = 0,96831 bar. Con 1 atm, ω' = 0,02008 (no 0,02036) y ω₂ = 0,01749 (no 0,0178). Por eso HR₂ = 61,6 \% (no 62,7 \%).
+\end{ojobox}
+
+\begin{ojobox}{El balance de energía no cierra en la solución}
+La solución da ω₃ = 0,0212 kg/kg, que no es compatible con el balance de agua (ω₃ ≈ 0,0120) y deja un balance de energía con 446,86 frente a 444,5 kJ/s. Con ω₂ corregido, el resultado es el de esta resolución.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Refrigerador de dos etapas con cámara flash}
+\noindent\textit{Examen: Segundo parcial, 20-12-2024 · Puntuación: 3 puntos · Temas: Refrigeración, Refrigerante R-134a, Entropía, Sistemas abiertos}\par\medskip
+
+Máquina de refrigeración de R-134a de dos etapas con cámara flash a 0,4 MPa, condensación a 1,4 MPa y evaporador a 0,10 MPa. Por el condensador circulan 0,25 kg/s. El compresor de baja presión es isentrópico y el de alta presión tiene η = 0,9. Pide caudales, calores, trabajo, COP y S$_{gen}$ de la cámara flash.
+
+\begin{ocg}{Solucion: Refrigerador de dos etapas con camara flash}{sol-ex-sp-refrig-flash}{off}
+\begin{antesbox}
+Propiedades de R-134a (A-11, A-12). Cámara flash: balance de masa y energía con tres corrientes (entrada de líquido y vapor, dos salidas). Válvulas isoentálpicas.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Compresor de baja presión.}\par
+Vapor saturado a 0,4 MPa: h₁ = 252,32 kJ/kg, s₁ = 0,9145. Isentrópico hasta 1,4 MPa, con s₂s = 0,9145: h₂s = 278,09 kJ/kg. Con η = 0,9:  $h_2 = 252{,}32 + (278{,}09 - 252{,}32)/0{,}9 = 280{,}95$  kJ/kg.
+
+\par\medskip\noindent\textbf{Cámara flash y evaporador.}\par
+Entrada desde el condensador:  $h_3 = 125{,}26$  kJ/kg (líquido saturado a 1,4 MPa). Válvula:  $h_4 = h_3$  y título  $x_4 = 0{,}3324$  a 0,4 MPa. Líquido saturado a 0,4 MPa:  $h_5 = 62{,}00$ . Válvula:  $h_6 = h_5$ . Vapor saturado a 0,1 MPa:  $h_7 = 231{,}35$ ,  $s_7 = 0{,}9395$ . Compresor de baja isentrópico a 0,4 MPa:  $h_8 = 259{,}50$  kJ/kg. Balance de la cámara flash:  $\dot m_B = 0{,}1608$  kg/s es el caudal que pasa por el evaporador.
+
+\par\medskip\noindent\textbf{Calores, trabajo y COP.}\par
+\[\dot Q_{\text{evap}} = 0{,}1608(231{,}35 - 62{,}00) = 27{,}23\ \text{kW} \qquad \dot Q_{\text{cond}} = 0{,}25(125{,}26 - 280{,}95) = -38{,}92\ \text{kW}\]   \[\dot W = 38{,}92 - 27{,}23 = 11{,}69\ \text{kW} \qquad \mathrm{COP} = \frac{27{,}23}{11{,}69} = 2{,}33\]  Para Carnot con T$_{F}$ = 243 K y T$_{C}$ = 298 K: COP = 243/55 = 4,42.
+
+\par\medskip\noindent\textbf{Generación de entropía de la cámara flash.}\par
+\[\dot S_{\text{gen}} = \dot m_a s_1 + \dot m_B s_5 - \dot m_a s_4 - \dot m_B s_8 = +7{,}9\cdot 10^{-5}\ \text{kW/K}\]
+
+\begin{resbox}
+ṁ$_{B}$ ≈ 0,1608 kg/s; Q̇$_{evap}$ ≈ 27,23 kW; Q̇$_{cond}$ ≈ −38,92 kW; Ẇ ≈ 11,69 kW; COP ≈ 2,33; Ṡ$_{gen}$ (flash) ≈ +7,9·10⁻⁵ kW/K ≈ 0: proceso posible.
+\end{resbox}
+
+\begin{ojobox}{Signo del balance de entropía}
+La solución escribe el balance con el signo invertido ("0 = entradas − salidas − Ṡ$_{gen}$") y obtiene −1,04·10⁻⁴ kW/K. El resultado correcto es +7,9·10⁻⁵ kW/K. Un valor negativo no puede ser la respuesta.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Metano con 50 \% de exceso de aire: PCS, PCI y punto de rocío}
+\noindent\textit{Examen: Segundo parcial, 20-12-2024 · Puntuación: 2 puntos · Temas: Combustión, Psicrometría}\par\medskip
+
+Metano (CH₄) quemado a 25 °C y 1 atm con 50 \% de exceso de aire. Pide PCS y PCI (kJ/kg), la reacción, el aire, la composición de los productos y la temperatura de rocío de los productos.
+
+\begin{ocg}{Solucion: Metano con 50  por ciento de exceso de aire: PCS, PCI y punto de rocio}{sol-ex-sp-metano}{off}
+\begin{antesbox}
+Reacción estequiométrica y exceso de aire. Entalpías de formación a 25 °C. Presión parcial del vapor de agua en productos a 1 atm.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Reacción y aire.}\par
+\[\mathrm{CH_4} + 2(\mathrm{O_2} + 3{,}76\,\mathrm{N_2}) ightarrow \mathrm{CO_2} + 2\,\mathrm{H_2O} + 7{,}52\,\mathrm{N_2}\]  Aire estequiométrico: 9,52 mol por mol de CH₄. Con 50 \% de exceso: 14,28 mol de aire, de los que O₂ en exceso = 1,0 mol y N₂ = 11,28 mol.
+
+\par\medskip\noindent\textbf{PCS y PCI.}\par
+PCS:  $|{-393\,520} - 2\cdot 285\,830 + 74\,850| = 890\,330$  kJ/kmol →  $890\,330/16{,}043 = 55\,496$  kJ/kg. PCI:  $|{-393\,520} - 2\cdot 241\,820 + 74\,850| = 802\,310$  kJ/kmol →  $802\,310/16{,}043 = 50\,010$  kJ/kg.
+
+\par\medskip\noindent\textbf{Productos y punto de rocío.}\par
+Productos: CO₂ = 1, H₂O = 2, O₂ = 1, N₂ = 11,28; total = 15,28 mol.  \[y_{\text{H}_2\text{O}} = \frac{2}{15{,}28} = 0{,}1309 \qquad p_v = 13{,}26\ \text{kPa} \qquad T_{\text{rocío}} \approx 51{,}5\ \text{°C}\]
+
+\begin{resbox}
+PCS ≈ 55 496 kJ/kg; PCI ≈ 50 010 kJ/kg; y$_{H}$₂O ≈ 0,1309; p$_{v}$ ≈ 13,26 kPa; T de rocío ≈ 51,5 °C.
+\end{resbox}
+
+\begin{ojobox}{PCS y PCI}
+La solución de referencia da PCS = 55 514,6 kJ/kg y PCI = 50 012,8 kJ/kg. Con M = 16,043 kg/kmol y los mismos datos, los valores correctos son 55 496 y 50 010 kJ/kg.
+\end{ojobox}
+
+\begin{ojobox}{Entalpía intermedia y fracción de agua}
+La solución escribe −241 280 kJ/kmol en una línea intermedia; el dato es −241 820. Además escribe y$_{H}$₂O = 2/(11,28 + 1 + 2) = 0,14: omite el CO₂. La fracción correcta es 0,1309.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Refrigerador de dos etapas de R-134a con cámara flash (6 puntos)}
+\noindent\textit{Examen: Segundo parcial, 20-12-2024 · Puntuación: 6 puntos · Temas: Refrigeración, Refrigerante R-134a}\par\medskip
+
+Máquina frigorífica en cascada de dos etapas entre 1,2 MPa y 200 kPa, con R-134a. El condensador entrega líquido saturado a 1,2 MPa. Un tanque flash a 0,45 MPa separa vapor y líquido. El vapor flash se mezcla con el refrigerante que sale del compresor de baja presión, y la mezcla se comprime hasta 1,2 MPa. El líquido del flash se lamina hasta 200 kPa y entra en el evaporador, que entrega vapor saturado. Caudal por el compresor de baja presión ṁ = 0,15 kg/s; η = 0,8 en ambos compresores.
+
+Pide: (a) el caudal del compresor de alta presión; (b) el calor eliminado del espacio refrigerado; (c) el EER; (d) el calor eliminado y el EER con una sola etapa entre los mismos límites, con el mismo caudal que en (a) y el mismo rendimiento isentrópico.
+
+\begin{ocg}{Solucion: Refrigerador de dos etapas de R-134a con camara flash (6 puntos)}{sol-ex-sp-refrig-6}{off}
+\begin{antesbox}
+Numeración de estados: 1 = vapor saturado a 0,2 MPa (salida del evaporador); 2 = salida del compresor de baja presión a 0,45 MPa; 3 = mezcla con el vapor flash, a 0,45 MPa; 4 = salida del compresor de alta presión a 1,2 MPa; 5 = líquido saturado a 1,2 MPa; 6 = entrada del flash; 7 = líquido saturado a 0,45 MPa; 8 = entrada del evaporador; 9 = vapor saturado a 0,45 MPa.
+
+La solución de referencia trabaja en bar (2 bar, 4,5 bar, 12 bar). Aquí se usa MPa. Como 0,45 MPa cae justo entre 0,4 y 0,5 MPa, el valor a 4,5 bar es el promedio de los valores a 4 bar y 5 bar.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Estado 2.}\par
+El compresor de baja presión es isentrópico hasta 0,45 MPa:  $s_{2s} = s_1 = 0{,}9253\ \text{kJ/(kg·K)}$ . Interpolando en las tablas de vapor sobrecalentado a 4 bar y 5 bar, con el mismo  $s$ , se obtiene  $h_{2s}(4\ \text{bar}) = 255{,}40$  y  $h_{2s}(5\ \text{bar}) = 260{,}02$  kJ/kg. Promediando:  $h_{2s} = 257{,}71$  kJ/kg. Con η = 0,8:  \[h_2 = h_1 + \frac{h_{2s} - h_1}{0{,}8} = 241{,}30 + \frac{257{,}71 - 241{,}30}{0{,}8} = 261{,}81\ \text{kJ/kg}\]
+
+\par\medskip\noindent\textbf{Cámara flash y caudal del vapor flash.}\par
+Entalpías de líquido saturado:  $h_5 = h_6 = 115{,}76$  kJ/kg (a 1,2 MPa, válvula isentálpica);  $h_7 = h_8 = \frac{62{,}00 + 71{,}33}{2} = 66{,}665$  kJ/kg (a 0,45 MPa). Vapor saturado a 0,45 MPa:  $h_9 = \frac{252{,}32 + 256{,}07}{2} = 254{,}195$  kJ/kg.
+
+Caudal del líquido, que es el mismo que el del evaporador:  $\dot m_7 = \dot m_1 = 0{,}15$  kg/s. Balance de energía en el flash:  \[\dot m_6 h_6 = \dot m_7 h_7 + \dot m_9 h_9,\qquad \dot m_6 = \dot m_7 + \dot m_9 \;\Rightarrow\; \dot m_9 = \dot m_7\,\frac{h_6 - h_7}{h_9 - h_6} = 0{,}0532\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Mezcla y compresor de alta presión.}\par
+Mezcla adiabática a 0,45 MPa:  \[(\dot m_1 + \dot m_9)\,h_3 = \dot m_1 h_2 + \dot m_9 h_9 \;\Rightarrow\; h_3 = \frac{0{,}15\cdot 261{,}81 + 0{,}0532\cdot 254{,}195}{0{,}2032} = 259{,}82\ \text{kJ/kg}\]  Entropía en el estado 3:  $s_3 = 0{,}9326$  kJ/(kg·K). A 1,2 MPa, con  $s = 0{,}9326$ ,  $h_{4s} = 280{,}84$  kJ/kg. Con η = 0,8:  \[h_4 = h_3 + \frac{h_{4s} - h_3}{0{,}8} = 259{,}82 + \frac{280{,}84 - 259{,}82}{0{,}8} = 286{,}10\ \text{kJ/kg}\]
+
+\par\medskip\noindent\textbf{Apartado (a).}\par
+El caudal por el compresor de alta presión es la suma de los dos caudales que se mezclan:  \[\dot m_{AP} = \dot m_1 + \dot m_9 = 0{,}15 + 0{,}0532 = 0{,}2032\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Apartados (b) y (c).}\par
+\[\dot Q_e = \dot m_1 (h_1 - h_8) = 0{,}15\,(241{,}30 - 66{,}665) = 26{,}20\ \text{kW}\]   \[\dot W_{BP} = 0{,}15\,(261{,}81 - 241{,}30) = 3{,}08\ \text{kW},\qquad \dot W_{AP} = 0{,}2032\,(286{,}10 - 259{,}82) = 5{,}34\ \text{kW}\]   \[\mathrm{EER} = \frac{\dot Q_e}{\dot W_{BP} + \dot W_{AP}} = \frac{26{,}20}{8{,}42} = 3{,}11\]
+
+\par\medskip\noindent\textbf{Apartado (d): una sola etapa.}\par
+Mismo caudal que en (a),  $\dot m = 0{,}2032$  kg/s. Compresión de 1 a C, con  $s = 0{,}9253$  kJ/(kg·K) y 1,2 MPa:  $h_{2s} = 278{,}44$  kJ/kg (interpolación en la tabla de sobrecalentado). Con η = 0,8,  $h_2 = 241{,}30 + (278{,}44 - 241{,}30)/0{,}8 = 287{,}73$  kJ/kg.  \[\dot Q_e = 0{,}2032\,(241{,}30 - 115{,}76) = 25{,}51\ \text{kW},\qquad \dot W = 0{,}2032\,(287{,}73 - 241{,}30) = 9{,}43\ \text{kW}\]   \[\mathrm{EER} = \frac{25{,}51}{9{,}43} = 2{,}70\]
+
+\begin{resbox}
+(a) ṁ$_{AP}$ ≈ 0,2032 kg/s. (b) Q̇$_{e}$ ≈ 26,2 kW. (c) EER ≈ 3,11. (d) Una etapa: Q̇$_{e}$ ≈ 25,5 kW y EER ≈ 2,70.
+\end{resbox}
+
+\begin{ojobox}{Estado 9 es vapor saturado}
+La solución de referencia lo marca como «vapor sobrecalentado», pero el vapor que sale del flash está saturado a 0,45 MPa. Por eso se usa el promedio de los valores de vapor saturado a 4 y 5 bar.
+\end{ojobox}
+
+\begin{ojobox}{Calor eliminado en (b)}
+La solución de referencia escribe h₈ = 66,615 kJ/kg y obtiene 26,203 kW. El valor de h₈ = h₇ es 66,665 kJ/kg, y el resultado correcto es Q̇$_{e}$ = 0,15·(241,30 − 66,665) = 26,195 kW ≈ 26,2 kW.
+\end{ojobox}
+
+\begin{ojobox}{Transcripción de 0,9515 a 4 bar}
+En una de las interpolaciones a 4 bar, la solución de referencia escribe 262,46 kJ/kg. El valor de la tabla es 262,96 kJ/kg, que es el que reproduce su resultado de 255,40 kJ/kg. Con 262,46 el resultado sería 255,29 kJ/kg y el caudal de (a) variaría en menos del 0,1 \%.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Dos cámaras rígidas de aire que se mezclan (4 puntos)}
+\noindent\textit{Examen: Segundo parcial, 20-12-2024 · Puntuación: 4 puntos · Temas: Gases ideales, Entropía, Sistemas cerrados}\par\medskip
+
+Cámara A: 5 kmol de aire a 300 K y 3 bar. Cámara B: 2 kmol de aire a 600 K y 6 bar. Las dos cámaras están separadas por una válvula. Se abre la válvula y, a la vez, se aporta energía por efecto Joule con un valor de 500 kJ.
+
+Para el estado de equilibrio final pide: (a) T$_{f}$; (b) p$_{f}$; (c) ΔS$_{12}$; (d) Q$_{12}$.
+
+\begin{ocg}{Solucion: Dos camaras rigidas de aire que se mezclan (4 puntos)}{sol-ex-sp-camaras}{off}
+\begin{antesbox}
+Gases idénticos (aire en las dos cámaras): no hay término de mezcla. El cambio de entropía de cada parte se debe a la temperatura y a la presión, y la presión que se usa es la presión total de la mezcla. La energía de Joule entra como trabajo eléctrico, W$_{e}$ = −500 kJ.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Volúmenes y masas.}\par
+Cámara A:  $V_A = \dfrac{n R_u T}{p} = \dfrac{5\cdot 8{,}314\cdot 300}{300} = 41{,}57\ \text{m}^3$ . Cámara B:  $V_B = \dfrac{2\cdot 8{,}314\cdot 600}{600} = 16{,}63\ \text{m}^3$ . Volumen total  $V = 58{,}20$  m³.
+
+Masas (M$_{aire}$ = 28,97 kg/kmol):  $m_A = 144{,}85$  kg,  $m_B = 57{,}94$  kg,  $m = 202{,}79$  kg.
+
+\par\medskip\noindent\textbf{Energía y temperatura final.}\par
+Balance de energía con Q$_{12}$ = 0 (el aporte de 500 kJ es trabajo eléctrico):  \[\Delta U = m_A(u_f - u_A) + m_B(u_f - u_B) = 500\ \text{kJ} \;\Rightarrow\; u_f = \frac{500 + 144{,}85\cdot 214{,}07 + 57{,}94\cdot 434{,}78}{202{,}79} = 279{,}60\ \text{kJ/kg}\]  Con la tabla de aire,  $u(390\ \text{K}) = 278{,}13$  y  $u(400\ \text{K}) = 286{,}16$  kJ/kg:  \[T_f = 390 + 10\cdot\frac{279{,}60 - 278{,}13}{286{,}16 - 278{,}13} = 391{,}8\ \text{K}\]
+
+\par\medskip\noindent\textbf{Presión final.}\par
+La mezcla ocupa todo el volumen:  $p_f = \dfrac{n R_u T_f}{V} = \dfrac{7\cdot 8{,}314\cdot 391{,}8}{58{,}20} = 391{,}8\ \text{kPa} = 3{,}92\ \text{bar}$ .
+
+\par\medskip\noindent\textbf{Variación de entropía.}\par
+Para cada parte, con la presión total  $p_f$ :  $\Delta s_i = s^\circ(T_f) - s^\circ(T_i) - R\ln\dfrac{p_f}{p_i}$ . Con  $s^\circ(391{,}8\ \text{K}) = 1{,}9710$  kJ/(kg·K):  \[\Delta s_A = 1{,}9710 - 1{,}70203 - 0{,}287\ln\frac{391{,}8}{300} = +0{,}19234\ \text{kJ/(kg·K)}\]   \[\Delta s_B = 1{,}9710 - 2{,}40902 - 0{,}287\ln\frac{391{,}8}{600} = -0{,}31571\ \text{kJ/(kg·K)}\]   \[\Delta S_{12} = m_A\Delta s_A + m_B\Delta s_B = 27{,}86 - 18{,}29 = +9{,}57\ \text{kJ/K}\]
+
+\par\medskip\noindent\textbf{Calor.}\par
+El sistema no intercambia calor con el exterior: el aporte de 500 kJ es trabajo eléctrico. Por tanto,  $Q_{12} = 0$ .
+
+\begin{resbox}
+(a) T$_{f}$ ≈ 391,8 K (≈ 118,7 °C). (b) p$_{f}$ ≈ 3,92 bar. (c) ΔS$_{12}$ ≈ +9,6 kJ/K (≈ +0,047 kJ/(kg·K) por kg de mezcla). (d) Q$_{12}$ = 0.
+\end{resbox}
+
+\begin{ojobox}{Signo y presión en la variación de entropía}
+La solución de referencia da ΔS = −0,1267 kJ/(kg·K) y lo presenta como resultado. Con sus propios datos (u de tabla y temperatura final 391,8 K) la variación total es positiva. El término de presión debe usar la presión total de la mezcla (3,92 bar), no una presión de referencia de 1 bar.
+\end{ojobox}
+
+\begin{ojobox}{Precisión del resultado de entropía}
+El valor de s° a 391,8 K se obtiene por interpolación de la tabla de aire a partir de s°(400 K) = 1,99194 kJ/(kg·K) y la integral de c$_{p}$/T. Con c$_{p}$ constante (1,005 kJ/(kg·K)) el resultado sale ≈ 10,1 kJ/K. El signo es positivo con ambos métodos.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Mezcla adiabática de dos corrientes de aire en una UTA}
+\noindent\textit{Examen: Segundo parcial, 20-12-2024 · Puntuación: 2 puntos · Temas: Psicrometría, Sistemas abiertos, Mezclas}\par\medskip
+
+Corriente 1: 1000 m³/h de aire a 20 °C con T$_{bh}$ = 13,5 °C. Corriente 2: 2000 m³/h de aire a 30 °C y 60 \% de HR. Presión de 1 atm. Se mezclan adiabáticamente en una unidad de tratamiento de aire. Pide ω₁, ω₃, caudales de aire seco, T₃ y HR₃. (Enunciado resumido.)
+
+\begin{ocg}{Solucion: Mezcla adiabatica de dos corrientes de aire en una UTA}{sol-ex-sp-uta}{off}
+\begin{antesbox}
+Igual que el problema de mezcla de la sección anterior, con T$_{bh}$ en lugar de ω. Caudales de aire seco: volumen específico con la presión parcial del vapor.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Humedad de la corriente 1.}\par
+Con T$_{bh}$ = 13,5 °C y T = 20 °C, el saturador adiabático da  $\omega_1 = 0{,}00696$  kg/kg (p$_{v}$ = 1,121 kPa, HR₁ ≈ 47,9 \%).
+
+\par\medskip\noindent\textbf{Humedad de la corriente 2.}\par
+$p_v = 0{,}60\cdot 4{,}246 = 2{,}548$  kPa →  $\omega_2 = 0{,}01604$  kg/kg.
+
+\par\medskip\noindent\textbf{Caudales de aire seco.}\par
+\[v_{a1} = \frac{0{,}287\cdot 293{,}15}{101{,}325 - 1{,}121} = 0{,}8348\ \text{m}^3/\text{kg} \;\Rightarrow\; \dot m_{a1} = 0{,}3308\ \text{kg/s}\]   \[v_{a2} = 0{,}8857\ \text{m}^3/\text{kg} \;\Rightarrow\; \dot m_{a2} = 0{,}6307\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Mezcla.}\par
+\[\omega_3 = \frac{0{,}3308\cdot 0{,}00696 + 0{,}6307\cdot 0{,}01604}{0{,}9615} = 0{,}01292\ \text{kg/kg}\]   \[h_3 = 59{,}70\ \text{kJ/kg a.s.} \Rightarrow T_3 = 26{,}6\ \text{°C} \qquad \mathrm{HR}_3 \approx 59\ \%\]
+
+\begin{resbox}
+ω₁ ≈ 0,00696; ω₃ ≈ 0,01292 kg/kg; ṁ$_{a1}$ ≈ 0,3308 kg/s; ṁ$_{a2}$ ≈ 0,6307 kg/s; T₃ ≈ 26,6 °C; HR₃ ≈ 59 \%.
+\end{resbox}
+
+\hspace{0pt}\end{ocg}
+
+\subsection{Calentamiento y humidificación de aire con vapor saturado (3 puntos)}
+\noindent\textit{Examen: Segundo parcial, 20-12-2024 · Puntuación: 3 puntos · Temas: Psicrometría, Sistemas abiertos}\par\medskip
+
+Aire a 22 m³/min, 10 °C y 40 \% de HR, a 1 bar. Pasa por unos serpentines de calentamiento hasta 24 °C. Después entra en un humidificador, donde se inyecta vapor saturado de forma estacionaria, y sale a 25 °C y 55 \% de HR.
+
+Pide: 1) el caudal de aire seco; 2) el calor de los serpentines; 3) la HR a la salida de los serpentines; 4) el caudal de vapor inyectado; 5) la temperatura del vapor inyectado; 6) el proceso en un diagrama psicrométrico.
+
+\begin{ocg}{Solucion: Calentamiento y humidificacion de aire con vapor saturado (3 puntos)}{sol-ex-sp-humidif}{off}
+\begin{antesbox}
+Dos equipos: los serpentines no añaden humedad, y el humidificador sí. Balances de aire seco, de agua y de energía en cada equipo. Presiones de saturación: p$_{sat}$(10 °C) = 1,2281 kPa; p$_{sat}$(24 °C) = 2,9830 kPa; p$_{sat}$(25 °C) = 3,1698 kPa.
+\end{antesbox}
+
+\par\medskip\noindent\textbf{Estado 1 y caudal de aire seco.}\par
+Presión parcial del vapor:  $p_{v1} = 0{,}40\cdot 1{,}2281 = 0{,}4912$  kPa. Humedad absoluta:  $\omega_1 = \dfrac{0{,}622\cdot 0{,}4912}{100 - 0{,}4912} = 0{,}003070$  kg/kg.
+
+Volumen específico del aire seco:  $v_a = \dfrac{0{,}287\cdot 283{,}15}{100 - 0{,}4912} = 0{,}8167$  m³/kg. Con  $\dot V = 22/60$  m³/s:  \[\dot m_a = \frac{22/60}{0{,}8167} = 0{,}4490\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Serpentines.}\par
+Sin humedad nueva,  $\omega_2 = \omega_1 = 0{,}003070$  kg/kg. Humedad relativa a la salida:  $\mathrm{HR}_2 = \dfrac{p_{v2}}{p_{sat}(24\ ^{\circ}\text{C})} = \dfrac{0{,}4912}{2{,}9830} = 0{,}165$ , es decir, 16,5 \%.
+
+Entalpías por kg de aire seco, con  $h = h_a + \omega\,h_g$  y  $h_a(283{,}15\ \text{K}) = 283{,}14$ ,  $h_a(297{,}15\ \text{K}) = 297{,}19$  kJ/kg,  $h_g(10\ ^{\circ}\text{C}) = 2519{,}2$ ,  $h_g(24\ ^{\circ}\text{C}) \approx 2544{,}7$  kJ/kg:  $h_1 = 290{,}88$  kJ/kg a.s. y  $h_2 = 305{,}00$  kJ/kg a.s., luego  $h_2 - h_1 = 14{,}13$  kJ/kg a.s. Calor:  \[\dot Q = \dot m_a(h_2 - h_1) = 0{,}4490\cdot 14{,}13 = 6{,}34\ \text{kW}\]
+
+\par\medskip\noindent\textbf{Humidificador: caudal de vapor.}\par
+Salida: 25 °C y 55 \% de HR.  $p_{v3} = 0{,}55\cdot 3{,}1698 = 1{,}7434$  kPa, y  $\omega_3 = \dfrac{0{,}622\cdot 1{,}7434}{100 - 1{,}7434} = 0{,}01104$  kg/kg. Entalpía:  $h_3 = 298{,}18 + 0{,}01104\cdot 2546{,}5 = 326{,}28$  kJ/kg a.s.
+
+Balance de agua:  \[\dot m_v = \dot m_a(\omega_3 - \omega_2) = 0{,}4490\cdot(0{,}01104 - 0{,}003070) = 0{,}00358\ \text{kg/s}\]
+
+\par\medskip\noindent\textbf{Humidificador: temperatura del vapor.}\par
+Balance de energía en el humidificador,  $\dot m_a h_2 + \dot m_v h_v = \dot m_a h_3$ :  \[h_v = \frac{h_3 - h_2}{\omega_3 - \omega_2} = \frac{326{,}28 - 305{,}00}{0{,}007970} = 2671{,}5\ \text{kJ/kg}\]  Ese valor corresponde a vapor saturado a 1 bar (h$_{g}$ = 2675,5 kJ/kg, diferencia del 0,15 \%), así que  $T_v = T_{sat}(1\ \text{bar}) \approx 99{,}6\ ^{\circ}\text{C}$ .
+
+\par\medskip\noindent\textbf{Diagrama psicrométrico.}\par
+En el diagrama, 1 → 2 es horizontal: la humedad absoluta se mantiene en 0,00307 kg/kg y la temperatura sube de 10 °C a 24 °C. 2 → 3 sube en humedad hasta 0,01104 kg/kg y termina en 25 °C con 55 \% de HR, sobre la línea de HR del 55 \%.
+
+\begin{resbox}
+(1) ṁ$_{a}$ ≈ 0,449 kg/s. (2) Q̇ ≈ 6,34 kW. (3) HR₂ ≈ 16,5 \%. (4) ṁ$_{v}$ ≈ 0,00358 kg/s. (5) T$_{v}$ ≈ 99,6 °C. (6) Diagrama: 1 → 2 horizontal a ω = 0,00307; 2 → 3 hacia ω = 0,01104 y 25 °C.
+\end{resbox}
+
+\begin{ojobox}{Temperatura del vapor inyectado}
+La solución de referencia da el vapor a 98,66 °C. El vapor saturado a 1 bar está a T$_{sat}$ = 99,6 °C, y es el estado que cumple el balance de energía. Usa siempre la temperatura de saturación a la presión dada.
+\end{ojobox}
+
+\hspace{0pt}\end{ocg}
+
+\end{document}
