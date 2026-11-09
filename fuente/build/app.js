@@ -85,7 +85,7 @@
       });
     });
     document.addEventListener('click', (ev) => {
-      if (!ev.target.closest('.search')) cajaRes.hidden = true;
+      if (!ev.target.closest('.srch-card')) cajaRes.hidden = true;
     });
     busq.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') { cajaRes.hidden = true; busq.blur(); } });
   }
@@ -199,6 +199,14 @@
     const r = el.querySelector('input[type=range]');
     if (r) setTimeout(() => r.focus({ preventScroll: true }), 400);
   }));
+
+  /* ----- botón de volver arriba ----- */
+  const arriba = $('#totop');
+  if (arriba) {
+    const mostrar = () => arriba.classList.toggle('show', window.scrollY > 600);
+    window.addEventListener('scroll', mostrar, { passive: true });
+    mostrar();
+  }
 
   /* ----- PWA: service worker (solo en sitio servido por http/https) ----- */
   if ('serviceWorker' in navigator && /^https?:/.test(window.location.protocol)) {

@@ -1,5 +1,5 @@
-// Caché sin conexión de la guía. Versión: 8 nov 2026
-const VERSION = 'termo-2026-11-08';
+// Caché sin conexión de la guía. Versión: 9 nov 2026
+const VERSION = 'termo-2026-11-09';
 const ARCHIVOS = [
   './',
   'index.html',

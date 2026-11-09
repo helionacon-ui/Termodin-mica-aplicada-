@@ -8,7 +8,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDFDIR = os.path.join(ROOT, 'build', 'pdf')
 OUT = os.path.join(ROOT, 'out', 'pdf')
 os.makedirs(OUT, exist_ok=True)
-FECHA = '8 nov 2026'
+FECHA = '9 nov 2026'
 
 CABECERA = '<div style="font-size:7.5px;width:100%;padding:0 12mm;color:#667;text-align:right">Termodinámica Aplicada · 521102006 · Grado en Ingeniería Biomédica · UPCT · curso 2026-27</div>'
 PIE = ('<div style="font-size:7.5px;width:100%;padding:0 12mm;color:#667;display:flex;justify-content:space-between">'
@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
         for sub in ['pdf_formulario_1p']:
             destino = os.path.join(OUT, 'formulario-una-pagina.pdf')
-            for escala in (1.0, 0.92, 0.85, 0.78, 0.7):
+            for escala in (1.0, 0.85, 0.75, 0.65, 0.58, 0.5):
                 imprimir(pw, os.path.join(PDFDIR, sub + '.html'), destino, escala=escala, margen='12mm', cabecera=False)
                 if len(PdfReader(destino).pages) == 1:
                     break

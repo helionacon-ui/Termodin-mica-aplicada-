@@ -41,10 +41,23 @@ BUILD = os.path.join(ROOT, 'build')
 OUT = os.path.join(ROOT, 'out')
 SITE = os.path.join(ROOT, 'site')
 KATEX = '/opt/npm-tools/node_modules/katex/dist'
-FECHA = '8 de noviembre de 2026'
-FECHA_CORTA = '8 nov 2026'
+FECHA = '9 de noviembre de 2026'
+FECHA_CORTA = '9 nov 2026'
 PDFDIR = os.path.join(BUILD, 'pdf')
 TITULO = 'Termodinámica Aplicada'
+# Grupos del índice y color por bloque, con la misma estructura que la guía de referencia.
+BLOQUE_ESTILO = {
+    'inicio': ('Empezar', 'var(--c0)'), 'examen': ('Empezar', 'var(--c0)'),
+    't01': ('Temas', 'var(--c1)'), 't02': ('Temas', 'var(--c1)'),
+    't03': ('Temas', 'var(--c2)'), 't04': ('Temas', 'var(--c2)'),
+    't05': ('Temas', 'var(--c3)'), 't06': ('Temas', 'var(--c3)'),
+    't07': ('Temas', 'var(--c4)'), 't08': ('Temas', 'var(--c4)'),
+    't09': ('Temas', 'var(--c5)'),
+    't10': ('Temas', 'var(--c6)'), 't11': ('Temas', 'var(--c6)'),
+    'practicas': ('Prácticas y exámenes', 'var(--c7)'), 'examenes': ('Prácticas y exámenes', 'var(--c7)'),
+    'demos': ('Practicar', 'var(--c8)'), 'autoevaluacion': ('Practicar', 'var(--c8)'), 'simulacros': ('Practicar', 'var(--c8)'),
+    'formulario': ('Repasar', 'var(--c0)'), 'glosario': ('Repasar', 'var(--c0)'), 'plan': ('Repasar', 'var(--c0)'),
+}
 MAESTRO = 'termodinamica-aplicada-guia.html'
 
 DIR_RE = re.compile(r'^@([a-z][a-z\-]*)\s*(.*)$')
@@ -260,13 +273,13 @@ def r_bloque(n, ctx):
     ctx['subs'] = subs
     cont = hijos(n['children'], ctx)
     intro = cuerpo(n['body'])
-    color = color or '#2456d6'
+    grupo, color = BLOQUE_ESTILO.get(bid, (grupo or 'Guía', color or '#2456d6'))
     badge = badge or ''
     cab = ''
     if titulo:
-        cab = (f'<div class="sh"><div class="badge">{en_linea(badge)}</div>' if badge else '<div class="sh">')
-        cab += f'<div><div class="kick">{en_linea(kicker)}</div><h2>{en_linea(titulo)}</h2></div></div>'
-    TOC.append((grupo or 'Guía', bid, etiqueta or titulo, color, subs))
+        cab = '<div class="sh">' + (f'<span class="badge">{en_linea(badge)}</span>' if badge else '')
+        cab += f'<div class="shx"><p class="kick">{en_linea(kicker)}</p><h2>{en_linea(titulo)}</h2></div></div>'
+    TOC.append((grupo, bid, etiqueta or titulo, color, subs))
     return (f'<section class="sec bloque" id="{bid}" data-bloque="{bid}" '
             f'style="--tc:{color};--tcs:color-mix(in srgb,{color} 16%,transparent)">'
             f'{cab}{intro}\n{cont}</section>')
@@ -377,7 +390,7 @@ def r_ojo(n, ctx):
 def r_zero(n, ctx):
     t = pad(n['args'], 1)[0]
     eid = nuevo_id('z')
-    frag = (f'<div class="zero" id="{eid}" data-s="1"><h3>Desde cero: {en_linea(t)}</h3>'
+    frag = (f'<div class="zero" id="{eid}" data-s="1"><p class="ft">Desde cero: {en_linea(t)}</p>'
             f'{cuerpo(n["body"])}</div>')
     registrar(eid, 'Desde cero: ' + t, ctx.get('btitulo', ''), frag)
     return frag
@@ -531,9 +544,10 @@ def r_botones(n, ctx):
 
 def r_hero(n, ctx):
     eyebrow, titulo, sub = pad(n['args'], 3)
-    return (f'<div class="hero"><div class="eyebrow">{en_linea(eyebrow)}</div>'
+    return (f'<header class="hero"><div class="hero-in"><div class="hero-txt"><div class="eyebrow">{en_linea(eyebrow)}</div>'
             f'<h1>{titulo}</h1><p class="sub">{en_linea_m(sub)}</p>'
-            f'<div class="fecha">Última actualización: {FECHA}</div>{cuerpo(n["body"])}</div>')
+            f'<div class="fecha">Última actualización: {FECHA}</div>{cuerpo(n["body"])}</div></div></header>'
+            '\x01PAGINAS\x01')
 
 
 def r_intro(n, ctx):
@@ -640,14 +654,25 @@ def toc_html(modo, pagina_de):
     grupos = {}
     for grupo, bid, etiqueta, color, subs in TOC:
         grupos.setdefault(grupo, []).append((bid, etiqueta, color, subs))
-    h = ''
+    h = f'<a href="{pagina_de("inicio", "inicio")}" style="--tc:var(--c0)">Portada</a>'
     for g, items in grupos.items():
-        h += f'<h4>{en_linea(g)}</h4>'
+        h += f'<div class="grp">{en_linea(g)}</div>'
         for bid, etiqueta, color, subs in items:
-            h += f'<a href="{pagina_de(bid, bid)}" style="--tc:{color}"><span class="dot"></span>{en_linea(etiqueta)}</a>'
+            h += f'<a href="{pagina_de(bid, bid)}" style="--tc:{color}">{en_linea(etiqueta)}</a>'
             for aid, at in subs[:12]:
-                h += f'<a class="sub2" href="{pagina_de(bid, aid)}" style="font-size:.84rem;padding-left:26px;color:var(--muted)">{en_linea(at)}</a>'
+                h += f'<a class="sub2" href="{pagina_de(bid, aid)}" style="font-size:.84rem;padding-left:20px;color:var(--muted)">{en_linea(at)}</a>'
     return h
+
+
+def paginas_html(pagina_de):
+    tarjetas = []
+    for grupo, bid, etiqueta, color, subs in TOC:
+        if bid == 'inicio':
+            continue
+        tarjetas.append(f'<a href="{pagina_de(bid, bid)}" style="--tc:{color}"><small>{en_linea(grupo)}</small>{en_linea(etiqueta)}</a>')
+    return ('<section class="sec" id="paginas"><div class="sh"><span class="badge" aria-hidden="true">≡</span>'
+            '<div class="shx"><p class="kick">Contenido</p><h2>Páginas de la guía</h2></div></div>'
+            '<div class="pages">' + ''.join(tarjetas) + '</div></section>')
 
 
 def nav_html(pagina_de):
@@ -662,6 +687,7 @@ def pagina_maestra(secciones, res):
     js = open(os.path.join(BUILD, 'sims.js'), encoding='utf-8').read() + '\n' + open(os.path.join(BUILD, 'app.js'), encoding='utf-8').read()
     cuerpo_ = '\n'.join(secciones)
     cuerpo_ = cuerpo_.replace('\x01STATS\x01', stats_html())
+    cuerpo_ = cuerpo_.replace('\x01PAGINAS\x01', paginas_html(lambda b, a: '#' + a))
     cuerpo_ = sustituir_mates(cuerpo_, res)
     idx = json.dumps(IDX, ensure_ascii=False).replace('</', '<\\/')
     pag = lambda bid, anc: '#' + anc
@@ -682,17 +708,20 @@ def pagina_maestra(secciones, res):
 </head>
 <body data-version="{FECHA}">
 <a class="skip" href="#principal">Saltar al contenido</a>
-<header class="topbar"><div class="in">
-  <a class="brand" href="#inicio">{TITULO}<small class="fecha-cab">Actualizada el {FECHA_CORTA}</small></a>
-  <nav aria-label="Secciones">{nav_html(pag)}</nav>
-  <div class="search"><label class="sr-only" for="gsearch">Buscar en la guía</label>
-    <input id="gsearch" type="search" placeholder="Buscar en la guía…" autocomplete="off" data-index="">
-    <div class="sres" hidden role="listbox" aria-label="Resultados"></div></div>
+<div class="hub-bar">
+  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA · UPCT</a>
+  <span class="fecha-cab">Actualizada el {FECHA_CORTA}</span>
   <button class="btn theme-btn" type="button" id="tema" aria-label="Cambiar tema claro/oscuro">Tema</button>
-</div></header>
-<div class="wrap">
-  <aside class="toc" aria-label="Índice">{toc_html('master', pag)}</aside>
+</div>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+  <nav class="toc" aria-label="Índice">{toc_html('master', pag)}</nav>
   <main id="principal">
+  <div class="srch-card gs">
+    <label class="srch-lab" for="gsearch">Buscar en toda la guía</label>
+    <input type="search" id="gsearch" placeholder="Por ejemplo: carnot, entropía, psicrométrica…" autocomplete="off" spellcheck="false" data-index="">
+    <div class="sres" hidden role="listbox" aria-label="Resultados"></div>
+  </div>
 {cuerpo_}
   </main>
 </div>
@@ -717,8 +746,22 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
     cuerpo_ = cuerpo_.replace('\x01STATS\x01', stats_html())
     cuerpo_ = sustituir_mates(cuerpo_, res)
     cuerpo_ = re.sub(r'href="#([^"]+)"', lambda m: f'href="{pag(None, m.group(1))}"', cuerpo_)
-    titulo_pag = next(t for g, b, t, c, s in TOC if b == bid)
+    grupo_pag, titulo_pag = next((g, t) for g, b, t, c, s in TOC if b == bid)
     nombre_archivo = 'index' if bid == 'inicio' else bid
+    cuerpo_ = cuerpo_.replace('\x01PAGINAS\x01', paginas_html(lambda b, a: pag(b, a)))
+    orden = [b for g, b, t, c, s in TOC]
+    pager = ''
+    if bid in orden:
+        i = orden.index(bid)
+        enlaces = []
+        if i > 0:
+            enlaces.append(f'<a href="{pag(None, orden[i-1])}"><small>Anterior</small>{html.escape(TOC[i-1][2])}</a>')
+        else:
+            enlaces.append('<span></span>')
+        if i < len(orden) - 1:
+            enlaces.append(f'<a class="nx" href="{pag(None, orden[i+1])}"><small>Siguiente</small>{html.escape(TOC[i+1][2])}</a>')
+        pager = '<nav class="pager" aria-label="Páginas">' + ''.join(enlaces) + '</nav>'
+    
     doc = f'''<!doctype html>
 <html lang="es">
 <head>
@@ -734,18 +777,23 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
 </head>
 <body data-index="search-index.json" data-page="{nombre_archivo}">
 <a class="skip" href="#principal">Saltar al contenido</a>
-<header class="topbar"><div class="in">
-  <a class="brand" href="index.html">{TITULO}<small class="fecha-cab">Actualizada el {FECHA_CORTA}</small></a>
-  <nav aria-label="Secciones">{nav_html(lambda b, a: pag(b, a))}</nav>
-  <div class="search"><label class="sr-only" for="gsearch">Buscar en la guía</label>
-    <input id="gsearch" type="search" placeholder="Buscar en la guía…" autocomplete="off">
-    <div class="sres" hidden role="listbox" aria-label="Resultados"></div></div>
+<div class="hub-bar">
+  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA · UPCT</a>
+  <span class="fecha-cab">Actualizada el {FECHA_CORTA}</span>
   <button class="btn theme-btn" type="button" id="tema" aria-label="Cambiar tema claro/oscuro">Tema</button>
-</div></header>
-<div class="wrap">
-  <aside class="toc" aria-label="Índice">{toc_html('site', lambda b, a: pag(b, a))}</aside>
+</div>
+<nav class="crumb" aria-label="Migas de pan"><a href="index.html">{TITULO}</a><span class="sep">›</span><span>{html.escape(grupo_pag)}</span><span class="sep">›</span><span>{html.escape(titulo_pag)}</span></nav>
+<a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+  <nav class="toc" aria-label="Índice">{toc_html('site', lambda b, a: pag(b, a))}</nav>
   <main id="principal">
+  <div class="srch-card gs">
+    <label class="srch-lab" for="gsearch">Buscar en toda la guía</label>
+    <input type="search" id="gsearch" placeholder="Por ejemplo: carnot, entropía, psicrométrica…" autocomplete="off" spellcheck="false" data-index="">
+    <div class="sres" hidden role="listbox" aria-label="Resultados"></div>
+  </div>
 {cuerpo_}
+{pager}
   </main>
 </div>
 <footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · UPCT · curso 2026-27.</div>
@@ -816,7 +864,7 @@ def escribir_pwa(secciones_por_bloque):
     archivos += sorted('fonts/' + os.path.basename(p) for p in glob.glob(os.path.join(SITE, 'fonts', '*.woff2')))
     lista = ',\n  '.join(repr(a) for a in archivos)
     sw = f"""// Caché sin conexión de la guía. Versión: {FECHA_CORTA}
-const VERSION = 'termo-2026-11-08';
+const VERSION = 'termo-2026-11-09';
 const ARCHIVOS = [
   {lista}
 ];
