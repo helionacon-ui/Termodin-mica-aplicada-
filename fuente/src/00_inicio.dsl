@@ -4,9 +4,20 @@
 Empezar por el tema 1 | #t01 | pri
 Exámenes resueltos | #examenes
 Autoevaluación | #autoevaluacion
-Simuladores | #t01
+Temas y simuladores | #t01
 @estadisticas
-@fin
+@zero Cómo usar esta guía
+1. Lee la teoría del tema con intuición antes que fórmulas. Cada tema tiene un recuadro «Desde cero» si te hace falta repasar algo.
+2. Haz los ejemplos tapando la solución. Abre cada paso solo cuando lo hayas intentado.
+3. Juega con los simuladores: cambia una variable y mira qué pasa. Es la forma más rápida de entender un resultado.
+4. Marca los objetivos de cada tema. Se guardan en tu navegador.
+5. Haz la autoevaluación y los simulacros cronometrados. Los exámenes reales son la mejor referencia para saber qué cae.
+6. Repasa con el formulario y el glosario. La fórmula sin intuición no sirve en el examen.
+
+@trampa Antes de empezar
+- **Unidades**: todo en kJ, kg, K, kPa. Si ves MPa o °C en una fórmula termodinámica, convierte primero.
+- **Signos**: en esta guía Q > 0 entra al sistema y W > 0 sale del sistema (la convención de Moran). Revisa siempre cuál usa el enunciado.
+- **Tablas**: la misma presión puede ser de vapor saturado en una columna y de líquido en otra. Mira siempre la región antes de interpolar.
 
 @zero Qué es la asignatura
 La termodinámica estudia la energía: cuánta se transforma en trabajo, cuánta se pierde en forma de calor y por qué ciertos procesos son imposibles aunque cumplan la energía. Esta asignatura aplica esas ideas a máquinas reales: turbinas, motores, refrigeradores y el aire que respiras en una sala con humedad.
@@ -27,15 +38,4 @@ Si algo de esta lista no te suena, lee antes de seguir. Cada tema lo necesita.
 - **Notación de tablas**: en la tabla de saturación las columnas f y g indican líquido saturado y vapor saturado; fg es la diferencia.
 - **Interpolación lineal**: si x está entre x₁ y x₂, y = y₁ + (x − x₁)(y₂ − y₁)/(x₂ − x₁). Es el 90 % del trabajo con tablas.
 
-@zero Cómo usar esta guía
-1. Lee la teoría del tema con intuición antes que fórmulas. Cada tema tiene un recuadro «Desde cero» si te hace falta repasar algo.
-2. Haz los ejemplos tapando la solución. Abre cada paso solo cuando lo hayas intentado.
-3. Juega con los simuladores: cambia una variable y mira qué pasa. Es la forma más rápida de entender un resultado.
-4. Marca los objetivos de cada tema. Se guardan en tu navegador.
-5. Haz la autoevaluación y los simulacros cronometrados. Los exámenes reales son la mejor referencia para saber qué cae.
-6. Repasa con el formulario y el glosario. La fórmula sin intuición no sirve en el examen.
-
-@trampa Antes de empezar
-- **Unidades**: todo en kJ, kg, K, kPa. Si ves MPa o °C en una fórmula termodinámica, convierte primero.
-- **Signos**: en esta guía Q > 0 entra al sistema y W > 0 sale del sistema (la convención de Moran). Revisa siempre cuál usa el enunciado.
-- **Tablas**: la misma presión puede ser de vapor saturado en una columna y de líquido en otra. Mira siempre la región antes de interpolar.
+@fin
