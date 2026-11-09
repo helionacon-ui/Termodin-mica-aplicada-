@@ -1,0 +1,25 @@
+{
+  "name": "Termodinámica Aplicada · Guía de estudio",
+  "short_name": "Guía TA",
+  "description": "Guía de estudio de Termodinámica Aplicada (521102006), UPCT, curso 2026-27.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2456d6",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

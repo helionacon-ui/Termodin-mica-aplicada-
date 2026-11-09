@@ -1,0 +1,25 @@
+@bloque glosario | Glosario | Términos clave · orden alfabético | #6d28d9 | | Glosario | Repaso
+- **Balance de energía**: contabilidad de la energía que entra, sale y se queda en un sistema.
+- **Calor específico c_p / c_v**: energía por kilogramo y grado para calentar a presión o a volumen constante.
+- **COP**: coeficiente de operación; calor útil dividido entre trabajo consumido.
+- **Campana de saturación**: curva en el diagrama T-v, T-s o P-v que separa líquido, mezcla y vapor.
+- **Entalpía h**: u + Pv por kilogramo; es la energía que transporta un fluido en un flujo.
+- **Entropía s**: medida de la dispersión de la energía; sube en los procesos irreversibles.
+- **Exceso de aire**: aire por encima del estequiométrico en una combustión.
+- **Flash (cámara)**: separador de líquido y vapor a presión intermedia en un ciclo de dos etapas.
+- **Gas ideal**: modelo en el que PV = mRT y u, h dependen solo de T.
+- **Generación de entropía S_gen**: entropía creada por irreversibilidades; debe ser ≥ 0.
+- **HR (humedad relativa)**: cociente entre la presión de vapor y la de saturación a esa T.
+- **Isoentálpico**: sin cambio de entalpía; el proceso típico es la válvula.
+- **Isentrópico**: sin cambio de entropía; adiabático y reversible.
+- **Politrópico**: proceso con PVⁿ constante.
+- **PCS / PCI**: poder calorífico superior (agua líquida en productos) e inferior (agua vapor).
+- **Punto de rocío**: temperatura a la que el vapor de agua empieza a condensar al enfriar.
+- **Régimen estacionario**: nada cambia con el tiempo en el volumen de control.
+- **Relación de compresión r_p / r**: cociente de presiones (r_p) o de volúmenes (r) en un compresor o en un motor.
+- **Segundo principio**: los procesos ocurren en un sentido; S_gen ≥ 0.
+- **Sistema cerrado**: sin intercambio de masa con el entorno.
+- **Título x**: fracción másica de vapor en una mezcla saturada.
+- **Volumen de control**: región del espacio por la que pasa masa y energía.
+- **Volumen específico v**: volumen por kilogramo (m³/kg); inverso de la densidad.
+@fin
