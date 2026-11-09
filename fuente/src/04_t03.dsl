@@ -30,6 +30,21 @@ $$Q - W = m\,(u_2 - u_1)$$
 @zero Desde cero: cómo se usa la primera ley
 Escribe el balance antes de nada. Mira qué términos son cero (volumen constante, adiabático, sin cambio de energía cinética). Luego calcula ΔU, W y Q con las fórmulas de arriba. Si te dan Q y W, el signo indica si entra o sale.
 
+@grupo Trucos de clase · Tema 3 · Primer principio | abierto
+La energía no se crea ni se destruye: ΔE = Q − W, con Q que entra al sistema y W que sale.
+@intuicion
+El calor y el trabajo son dos formas de transferir energía. La energía total del sistema cambia por lo que entra menos lo que sale.
+**Trucos**
+1. Fija la convención de signos al principio del problema: Q positivo si entra al sistema; W positivo si lo realiza el sistema.
+2. ΔU y ΔH no dependen del camino; Q y W sí. Si te piden Q o W, necesitas conocer el camino.
+3. Trabajo de expansión W = ∫P dV. En un proceso isocoro W = 0 y Q = ΔU.
+4. En un ciclo completo ΔU = 0, así que Q_neto = W_neto, y el rendimiento es η = W_neto / Q_entrada.
+5. El trabajo de rozamiento |W_r| acaba como energía interna: W₁₂ = ∫P dV − |W_r|.
+6. Si hay rozamiento, expansión libre o diferencias finitas de presión o temperatura, el proceso es irreversible.
+@trampa
+Tomar Q y W como propiedades del estado. Solo ΔU, ΔH y ΔS son independientes del camino.
+@fin
+
 @ejemplo Calentamiento isobaro de aire en un cilindro
 @enunciado
 1 kg de aire en un cilindro-émbolo a 2 bar se calienta a presión constante desde 300 K hasta 500 K. Calcula W, ΔU y Q. Usa c_v = 0,718 kJ/(kg·K) y R = 0,287 kJ/(kg·K).

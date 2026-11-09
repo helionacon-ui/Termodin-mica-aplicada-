@@ -31,6 +31,20 @@ Como en el tema 4, la válvula no hace trabajo ni recibe calor. Por tanto h₃ =
 - Pensar que la válvula enfría "por la presión". Lo que la enfría es la evaporación parcial, a entalpía constante.
 - Olvidar el caudal en el balance de cada etapa.
 
+@grupo Trucos de clase · Tema 9 · Refrigeración, bombas de calor y refrigerantes | abierto
+Un refrigerador y una bomba de calor son la misma máquina usada con dos objetivos: uno quiere frío y el otro quiere calor.
+@intuicion
+El refrigerador extrae calor de un foco frío usando trabajo. La bomba de calor entrega ese calor, más el trabajo, al foco caliente. Por eso su COP es siempre mayor que 1.
+**Trucos**
+1. Carnot inverso: EER = T_F / (T_C − T_F); COP de bomba = T_C / (T_C − T_F).
+2. Bomba = refrigerador + 1: COP de bomba = 1 + EER.
+3. Código de los refrigerantes, según la diapositiva: R-718 es agua y R-717 es amoníaco (industrial, eficiente, tóxico). R-290 y R-600a son hidrocarburos, inflamables. CFC (R-11, R-12) y HCFC (R-22) dañan la capa de ozono. HFC (R-134a) no la daña, pero tiene alto potencial de calentamiento global.
+4. Compresor real: η_comp = (h₂s − h₁) / (h₂ − h₁). Mide cuánto se aleja del compresor isentrópico.
+5. Ciclos avanzados: cascada (temperaturas muy bajas), multietapa con cámara flash, absorción (usa calor en lugar de trabajo mecánico), Linde-Hampson (licuación de gases) y Brayton inverso.
+@trampa
+Confundir el COP del refrigerador con el de la bomba de calor.
+@fin
+
 @ejemplo Refrigerador de dos etapas con cámara flash
 @enunciado
 Un refrigerador de R-134a de dos etapas tiene una cámara flash a 0,4 MPa, condensador a 1,4 MPa y evaporador a 0,1 MPa. Por el condensador circulan 0,25 kg/s. Con las entalpías de la solución de referencia del examen (h₁ = 252,32; h₂ = 280,95; h₃ = 125,26; h₅ = 62,00; h₇ = 231,35; h₈ = 259,50 kJ/kg), calcula el caudal del evaporador, Q_evap, Q_cond, W y el COP.

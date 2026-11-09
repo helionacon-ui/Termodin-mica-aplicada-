@@ -30,6 +30,21 @@ Piensa en un grifo abierto con un tubo que se estrecha. La masa que entra es la 
 @zero Desde cero: por qué la válvula conserva la entalpía
 En una válvula el fluido pasa de alta a baja presión sin hacer trabajo ni recibir calor apreciable, y su velocidad cambia poco. El balance de energía se reduce a h₁ = h₂. Así que no hay que buscar ninguna otra relación: solo la entalpía se conserva. Es la clave del ciclo de refrigeración (tema 9).
 
+@grupo Trucos de clase · Tema 4 · Volumen de control (sistemas abiertos) | abierto
+En régimen estacionario, lo que entra en energía es igual a lo que sale, más el calor y el trabajo intercambiados.
+@intuicion
+Un sistema abierto es un tubo, una turbina o una tobera: el fluido entra, cambia y sale. Ya no tienes una masa fija, tienes flujos.
+**Trucos**
+1. Tacha antes de escribir la ecuación. En tobera y difusor: Q̇ = 0, Ẇ = 0, Δz ≈ 0, luego h₁ + c₁²/2 = h₂ + c₂²/2. En turbina adiabática: Ẇ = ṁ(h₁ − h₂). En compresor o bomba: Ẇ = ṁ(h₂ − h₁), cuidado con el signo.
+2. Válvula o estrangulamiento: h₁ = h₂ (isentálpico), sin trabajo.
+3. Intercambiador: sin trabajo y sin mezcla; el calor pasa de un fluido a otro. Cámara de mezcla: primero el balance de masa y después el de energía.
+4. Con un solo flujo de entrada y de salida, ṁ₁ = ṁ₂ = ṁ, y Q̇ = Ẇ + ṁ[Δh + Δc²/2 + gΔz].
+5. Tobera subsónica: acelera el fluido (c₂ > c₁) y baja la presión. El difusor hace lo contrario.
+6. Tanque que se descarga: es régimen no estacionario. No basta con el balance de estacionario; hay que integrar en el tiempo.
+@trampa
+Dejar términos de energía cinética o potencial que son despreciables sin comprobarlo, o olvidar que el trabajo de un compresor entra en el sistema.
+@fin
+
 @ejemplo Turbina de vapor con rendimiento isentrópico
 @enunciado
 Vapor entra en una turbina adiabática con h₁ = 3000 kJ/kg. La expansión isentrópica llega a h₂s = 2500 kJ/kg. El rendimiento isentrópico es η = 0,85. Calcula h₂ y el trabajo por kg.

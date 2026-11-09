@@ -43,6 +43,20 @@ Para los cambios isentrópicos, la tabla da directamente la relación p_r: $\fra
 - Confundir c_p y c_v: Δu siempre con c_v, Δh siempre con c_p.
 - Olvidar el término de presión en Δs. Un gas que se calienta a presión constante gana entropía; uno que se comprime isotérmicamente la pierde.
 
+@grupo Trucos de clase · Tema 2 · Gases: ideal, real, calor específico y politrópicos | abierto
+El gas ideal cumple Pv = RT, y su energía interna y su entalpía dependen solo de la temperatura.
+@intuicion
+El factor de compresibilidad Z = Pv / RT mide cuánto se aleja el gas real del ideal. Cuando la presión baja o la temperatura sube, Z tiende a 1. Por eso el diagrama de Nelson-Obert sirve para decidir si puedes usar la ley del gas ideal.
+**Trucos**
+1. R = c_p − c_v. Recuérdalo y te ahorras tablas: con c_p y R tienes c_v.
+2. γ = c_p / c_v. Para gas ideal, du = c_v dT y dh = c_p dT.
+3. Los cuatro casos de PV^n = cte: n = 0 isobaro; n = 1 isotermo (gas ideal); n = γ adiabático reversible; n → ∞ isocoro. Trabajo politrópico: W₁₂ = (P₂V₂ − P₁V₁) / (1 − n), con n ≠ 1.
+4. Experimento de Joule: en expansión libre de un gas ideal la temperatura no cambia, así que ΔU = 0 y W = 0.
+5. Sustancia incompresible: c_p = c_v = c(T); solo depende de la temperatura.
+@trampa
+Aplicar la ley del gas ideal a un vapor cerca de la campana, donde Z se aleja mucho de 1.
+@fin
+
 @ejemplo Masa de aire en un depósito
 @enunciado
 Un depósito de 2 m³ contiene aire a 300 kPa y 300 K. Calcula la masa de aire.

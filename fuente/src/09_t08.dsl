@@ -19,6 +19,21 @@ $$\eta_{\text{Otto}} = 1 - \frac{1}{r^{k-1}} \qquad \eta_{\text{Diesel}} = 1 - \
 
 $r$ es la relación de compresión (volumen máximo entre mínimo) y $r_c$ la relación de corte (volumen después de la combustión entre el inicial de ella). En Otto, la combustión es a volumen constante.
 
+@grupo Trucos de clase · Tema 8 · Motores alternativos: Otto, Diesel y Dual | abierto
+La diferencia entre los tres está en cómo entra el calor: Otto a volumen constante, Diesel a presión constante y Dual en las dos fases.
+@intuicion
+El motor de cuatro tiempos hace admisión, compresión, combustión y expansión, y escape. El ciclo de aire estándar sustituye la combustión por un aporte de calor.
+**Trucos**
+1. Otto: η = 1 − 1 / r^(γ−1).
+2. Diesel: η = 1 − (1 / r^(γ−1)) · (β^γ − 1) / [γ(β − 1)].
+3. Dual: η = 1 − (1 / r^(γ−1)) · (αβ^γ − 1) / [(α − 1) + γα(β − 1)].
+4. Casos límite del Dual, según la diapositiva: si α = 1 se obtiene el Diesel; si β = 1, el Otto. Úsalo para comprobar la fórmula.
+5. El Diesel comprime solo aire y el combustible entra al final, así que no hay detonación y puede usar relaciones de compresión mayores. En el Otto la mezcla se comprime y la detonación limita r.
+6. A la misma relación de compresión, el Otto tiene mejor rendimiento que el Diesel.
+@trampa
+Confundir α (combustión a volumen constante, α = p₃/p₂) con β (combustión a presión constante, β = v₃/v₂).
+@fin
+
 @ejemplo Otto y Diesel a igual compresión
 @enunciado
 Calcula el rendimiento ideal de Otto con r = 8 y el de Diesel con r = 16 y r_c = 2. Usa k = 1,4.

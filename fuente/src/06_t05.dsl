@@ -29,6 +29,21 @@ $$\eta_{\text{Carnot}} = 1 - \frac{T_C}{T_H} \qquad \mathrm{COP}_{\text{ref,Carn
 @zero Desde cero: por qué kelvin
 Estas fórmulas usan **temperaturas absolutas**. Si usas °C, el cociente T_C/T_H puede dar valores absurdos (por ejemplo, con 0 °C y 100 °C daría 0, cuando el rendimiento real no es cero). Convierte siempre antes de calcular.
 
+@grupo Trucos de clase · Tema 5 · Segundo principio | abierto
+Los procesos tienen sentido: el calor no pasa solo de frío a caliente, y no se puede convertir todo el calor de un foco en trabajo.
+@intuicion
+El primer principio dice qué energía se conserva; el segundo dice en qué dirección ocurren las cosas y cuánto trabajo máximo se puede obtener.
+**Trucos**
+1. Kelvin-Planck (no hay motor que convierta el calor de un solo foco en trabajo neto) y Clausius (no pasa calor de frío a caliente sin aporte de trabajo) son equivalentes. Si rompes una, rompes la otra.
+2. Agrupa las irreversibilidades por familias: térmicas (diferencia finita de temperatura), mecánicas (expansión libre, rozamiento, deformación inelástica) y otras (reacción química, mezcla de sustancias distintas, resistencia eléctrica, magnetización).
+3. Internamente reversible significa que no hay irreversibilidades dentro del sistema, aunque sí puede haberlas con el entorno.
+4. Carnot siempre en kelvin: η_Carnot = 1 − T_F / T_C. Si usas °C, el resultado es incorrecto.
+5. Refrigerador: EER = Q_F / W. Bomba de calor: COP = Q_C / W = 1 + EER. Usa la segunda igualdad para comprobar el resultado.
+6. Escala Kelvin: T = 273,16 · (Q / Q_triple). El punto triple del agua es la referencia.
+@trampa
+Usar °C en Carnot o confundir el COP de la bomba de calor con el del refrigerador.
+@fin
+
 @ejemplo Carnot entre 800 K y 300 K
 @enunciado
 Una máquina de Carnot trabaja entre un foco a 800 K y otro a 300 K. Calcula su rendimiento, el COP de un refrigerador y el COP de una bomba de calor que trabajan entre esas temperaturas.

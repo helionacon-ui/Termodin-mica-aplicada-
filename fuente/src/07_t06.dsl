@@ -32,6 +32,20 @@ Si S_gen sale negativo, el proceso es imposible. Si sale cero, es reversible (id
 - Líquido incompresible: $\Delta s \approx c\ln\frac{T_2}{T_1}$.
 - Sustancia pura: lee $s_f$, $s_g$, $s_{fg}$ o $s$ de la tabla, con interpolación.
 
+@grupo Trucos de clase · Tema 6 · Entropía | abierto
+La entropía mide la irreversibilidad: en un sistema aislado nunca disminuye.
+@intuicion
+Si un proceso es reversible, puedes deshacerlo sin dejar huella. Si hay rozamiento, calor a través de una diferencia finita de temperatura o expansión libre, se genera entropía.
+**Trucos**
+1. Calcula ΔS con un camino reversible imaginario. Aunque el proceso real sea irreversible, la entropía es una propiedad.
+2. Gas ideal: ds = c_p dT/T − R dP/P, o bien ds = c_v dT/T + R dv/v. En un isotermo, Δs = −R ln(P₂/P₁).
+3. Adiabático y reversible: ΔS = 0 (isentrópico). Adiabático e irreversible: ΔS > 0.
+4. Balance de entropía: dS/dt = Σ Q̇/T + Ṡ_gen, con Ṡ_gen ≥ 0. Si te sale negativa, revisa los signos.
+5. Isentrópico con tablas de gas ideal: P₂/P₁ = exp((s°₂ − s°₁)/R), o con presiones relativas.
+@trampa
+Calcular ΔS con el calor real de un proceso irreversible en lugar de usar un camino reversible.
+@fin
+
 @ejemplo Entropía generada en un proceso adiabático de aire
 @enunciado
 Un kilogramo de aire pasa de 10 bar y 400 K a 2 bar y 330 K en un proceso adiabático. Calcula el cambio de entropía del aire y la entropía generada. Usa c_p = 1,005 kJ/(kg·K) y R = 0,287 kJ/(kg·K).

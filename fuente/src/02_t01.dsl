@@ -36,6 +36,20 @@ La tabla de saturación de agua (Moran A-2 por temperatura, A-3 por presión) ti
 - Confundir la presión de saturación con la presión de la mezcla: si P = P_sat(T) estás en mezcla, no en vapor.
 - Interpolar linealmente v entre dos temperaturas lejanas. Para v_g, la interpolación en ln(v) es más fiable. En examen, interpola como indique la tabla o haz la interpolación en la columna que mejor se comporte.
 
+@grupo Trucos de clase · Tema 1 · Estado de una sustancia pura | abierto
+Con dos propiedades independientes (por ejemplo P y T, o P y v) queda fijado el estado de una sustancia pura simple y compresible.
+@intuicion
+Imagina agua en una olla. Mientras hierve a 1 atm, la temperatura se queda en 100 °C aunque sigas calentando: el calor se usa en cambiar de líquido a vapor. Por eso, dentro de la zona de dos fases, P y T no son independientes.
+**Trucos**
+1. Decide primero la región y después calcula. Compara T con T_sat(P): si T < T_sat es líquido comprimido; si T = T_sat es mezcla y hay que calcular el título; si T > T_sat es vapor sobrecalentado y no hay título.
+2. Título = vapor / total: x = (v − v_f) / (v_g − v_f). Es la regla de la palanca en el diagrama P-v o T-v.
+3. Líquido comprimido (aproximación de la diapositiva): v ≈ v_f(T) y h ≈ h_f(T) + v_f·(P − P_sat(T)). No uses v_g aquí.
+4. En el diagrama P-v: a la izquierda líquido, dentro de la campana mezcla, a la derecha vapor. El punto crítico es donde desaparece la diferencia entre líquido y vapor.
+5. Las tablas en inglés usan punto decimal. Antes de copiar un valor, comprueba el separador.
+@trampa
+Usar v_g cuando el estado es líquido comprimido; confundir P_sat con la presión de la mezcla; interpolar linealmente v_g entre temperaturas muy separadas.
+@fin
+
 @ejemplo Mezcla a 200 °C
 @enunciado
 Agua a 200 °C con v = 0,05 m³/kg. Calcula el título x y la entalpía específica. Datos de saturación a 200 °C (tabla de saturación): v_f = 0,001157 m³/kg, v_g = 0,12736 m³/kg, h_f = 852,45 kJ/kg, h_fg = 1939,8 kJ/kg.

@@ -27,6 +27,18 @@ $$w_{\text{comp}} = c_p(T_2 - T_1) \qquad w_{\text{turb}} = c_p(T_3 - T_4) \qqua
 
 El calor aportado es $q_{\text{ent}} = c_p(T_3 - T_2)$, y $\eta = w_{\text{neto}}/q_{\text{ent}}$.
 
+@grupo Trucos de clase · Tema 7 · Ciclos de vapor (Rankine) y de gas (Brayton) | abierto
+El rendimiento sube si el calor entra a mayor temperatura media o sale a menor temperatura media.
+@intuicion
+El ciclo Rankine tiene bomba, caldera, turbina y condensador. El Brayton es el de la turbina de gas (compresor, cámara de combustión y turbina) y es un ciclo abierto, el más habitual.
+**Trucos**
+1. Tres palancas en Rankine, según las diapositivas: subir la presión de la caldera, bajar la presión del condensador y sobrecalentar o recalentar el vapor. La regeneración también ayuda porque el agua entra más caliente en la caldera.
+2. Brayton ideal con aire estándar: η = 1 − 1 / r^((γ−1)/γ), con r = P₂/P₁. Solo depende de la relación de presiones.
+3. El condensador no es una pérdida inútil: hace posible que el agua vuelva a la bomba con poco trabajo.
+@trampa
+Usar las presiones en bar y en kPa a la vez sin convertirlas.
+@fin
+
 @ejemplo Brayton de aire frío con r_p = 8
 @enunciado
 Un ciclo Brayton de aire frío tiene r_p = 8. El aire entra al compresor a 300 K y la entrada a la turbina está a 1200 K. Calcula el rendimiento térmico, T₂, T₄, w_comp, w_turb y w_neto. Usa k = 1,4 y c_p = 1,005 kJ/(kg·K).
