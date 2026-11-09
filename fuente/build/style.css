@@ -629,3 +629,16 @@ pre.code,.consola{max-width:100%;overflow-x:auto}
   .sim img{width:100%;height:auto}
   .pages{break-inside:avoid}
 }
+
+/* portada: tarjetas agrupadas (estructura de la guía de referencia) */
+.pg-intro{margin:6px 0 4px;color:var(--muted);max-width:68ch}
+.pg-h{margin:26px 0 12px;font-size:20px;font-family:var(--display)}
+.pg-ud{margin:18px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin:0 0 6px}
+.pcard{display:flex;flex-direction:column;gap:8px;padding:16px 16px 14px;border:1px solid var(--line);border-top:4px solid var(--tc,var(--accent));border-radius:14px;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--tc,var(--accent)) 9%,var(--surface)),var(--surface) 65%);color:var(--fg);text-decoration:none;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.pcard:hover{transform:translateY(-2px);border-color:var(--tc,var(--accent))}
+.pc-ico{width:40px;height:40px;border-radius:12px;background:var(--tc,var(--accent));color:var(--surface);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:14px}
+.pcard b{font-size:16px;line-height:1.25}
+.pcard small{color:var(--muted);font-size:13px;line-height:1.4}
+.pcard em{font-style:normal;margin-top:auto;padding-top:4px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--tc,var(--accent))}

@@ -573,8 +573,11 @@ def r_hero(n, ctx):
     return (f'<header class="hero"><div class="hero-in"><div class="hero-txt"><div class="eyebrow">{en_linea(eyebrow)}</div>'
             f'<h1>{titulo}</h1><p class="sub">{en_linea_m(sub)}</p>'
             f'<div class="fecha">Última actualización: {FECHA}</div>{cuerpo(n["body"])}</div>'
-            f'<div class="hero-art" aria-hidden="false">{PORTADA_SVG}</div></div></header>'
-            '\x01PAGINAS\x01')
+            f'<div class="hero-art" aria-hidden="false">{PORTADA_SVG}</div></div></header>')
+
+
+def r_paginas(n, ctx):
+    return '\x01PAGINAS\x01'
 
 
 def r_intro(n, ctx):
@@ -691,15 +694,54 @@ def toc_html(modo, pagina_de):
     return h
 
 
+UNIDADES = [
+    ('UD1 · Fundamentos', ['t01', 't02']),
+    ('UD2 · Sistemas', ['t03', 't04']),
+    ('UD3 · Segundo principio', ['t05', 't06']),
+    ('UD4 · Ciclos de potencia', ['t07', 't08']),
+    ('UD5 · Refrigeración', ['t09']),
+    ('UD6 · Mezclas y combustión', ['t10', 't11']),
+]
+ICONO = {'examen': 'E', 'practicas': 'PR', 'examenes': 'EX', 'autoevaluacion': 'AU', 'simulacros': 'SI',
+         'demos': 'DE', 'formulario': 'Σ', 'glosario': 'Aa', 'plan': '→', 'formulario1p': 'Σ1'}
+
+
 def paginas_html(pagina_de):
-    tarjetas = []
-    for grupo, bid, etiqueta, color, subs in TOC:
-        if bid == 'inicio':
-            continue
-        tarjetas.append(f'<a href="{pagina_de(bid, bid)}" style="--tc:{color}"><small>{en_linea(grupo)}</small>{en_linea(etiqueta)}</a>')
-    return ('<section class="sec" id="paginas"><div class="sh"><span class="badge" aria-hidden="true">≡</span>'
-            '<div class="shx"><p class="kick">Contenido</p><h2>Páginas de la guía</h2></div></div>'
-            '<div class="pages">' + ''.join(tarjetas) + '</div></section>')
+    por_bid = {bid: (etiqueta, color, subs) for grupo, bid, etiqueta, color, subs in TOC}
+
+    def tarjeta(bid, icono=None):
+        if bid not in por_bid:
+            return ''
+        etiqueta, color, subs = por_bid[bid]
+        desc = ' · '.join(at for _, at in subs[:3]) if subs else ''
+        ico = icono or bid[:2].upper()
+        return (f'<a class="pcard" href="{pagina_de(bid, bid)}" style="--tc:{color}">'
+                f'<span class="pc-ico">{ico}</span><b>{en_linea(etiqueta)}</b>'
+                + (f'<small>{en_linea(desc)}</small>' if desc else '')
+                + '<em>Abrir →</em></a>')
+
+    def bloque(titulo, texto, items):
+        return (f'<h3 class="pg-h">{titulo}</h3>' if titulo else '') + \
+            '<div class="pgrid">' + ''.join(items) + '</div>'
+
+    partes = [
+        '<section class="sec" id="paginas"><div class="sh"><span class="badge" aria-hidden="true">≡</span>'
+        '<div class="shx"><p class="kick">Contenido</p><h2>Páginas de la guía</h2></div></div>',
+        '<p class="pg-intro">Empieza por la primera tarjeta y sigue el orden. Cada tema tiene teoría, ejemplos, simuladores y tarjetas de repaso.</p>',
+        '<h3 class="pg-h">Antes de nada</h3>',
+        '<div class="pgrid">' + tarjeta('examen', 'E') + '</div>',
+        '<h3 class="pg-h">Temas por unidad</h3>',
+    ]
+    for titulo, bids in UNIDADES:
+        partes.append(f'<p class="pg-ud">{en_linea(titulo)}</p><div class="pgrid">'
+                      + ''.join(tarjeta(b) for b in bids) + '</div>')
+    partes.append('<h3 class="pg-h">Practica</h3><div class="pgrid">'
+                  + ''.join(tarjeta(b, ICONO.get(b)) for b in ['practicas', 'examenes', 'autoevaluacion', 'simulacros', 'demos'])
+                  + '</div>')
+    partes.append('<h3 class="pg-h">Consulta rápida</h3><div class="pgrid">'
+                  + ''.join(tarjeta(b, ICONO.get(b)) for b in ['formulario', 'glosario', 'plan']) + '</div>')
+    partes.append('</section>')
+    return ''.join(partes)
 
 
 def nav_html(pagina_de):

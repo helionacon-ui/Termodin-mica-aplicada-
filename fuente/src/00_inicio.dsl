@@ -6,6 +6,7 @@ Exámenes resueltos | #examenes
 Autoevaluación | #autoevaluacion
 Temas y simuladores | #t01
 @estadisticas
+@paginas
 @zero Cómo usar esta guía
 1. Lee la teoría del tema con intuición antes que fórmulas. Cada tema tiene un recuadro «Desde cero» si te hace falta repasar algo.
 2. Haz los ejemplos tapando la solución. Abre cada paso solo cuando lo hayas intentado.
