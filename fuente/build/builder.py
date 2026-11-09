@@ -542,11 +542,38 @@ def r_botones(n, ctx):
     return '<div class="cta">' + ''.join(bs) + '</div>'
 
 
+PORTADA_SVG = (
+    '<svg class="hero-svg" viewBox="0 0 340 250" role="img" '
+    'aria-label="Ilustración: un gas en un cilindro con pistón y un diagrama T-s de un ciclo cerrado">'
+    # cilindro con gas y pistón cargado
+    '<rect x="26" y="96" width="112" height="128" rx="6" style="fill:var(--surface);stroke:var(--muted);stroke-width:2"/>'
+    '<rect x="30" y="158" width="104" height="62" rx="4" style="fill:var(--accent-soft)"/>'
+    '<rect x="32" y="112" width="100" height="12" rx="3" style="fill:var(--accent)"/>'
+    '<rect x="72" y="46" width="20" height="66" style="fill:var(--muted)"/>'
+    '<rect x="50" y="22" width="64" height="26" rx="4" style="fill:var(--c4)"/>'
+    '<text x="82" y="40" text-anchor="middle" style="fill:var(--bg);font:700 12px var(--mono)">m g</text>'
+    # calor aportado
+    '<path d="M46 232 q6 -8 12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0" style="fill:none;stroke:var(--c8);stroke-width:2.2;stroke-linecap:round"/>'
+    '<text x="82" y="248" text-anchor="middle" style="fill:var(--c8);font:600 12px var(--mono)">Q entra</text>'
+    # ejes del diagrama T-s
+    '<path d="M196 214 H322 M196 214 V26" style="fill:none;stroke:var(--muted);stroke-width:1.6"/>'
+    '<path d="M316 208 L322 214 L316 220 M190 32 L196 26 L202 32" style="fill:none;stroke:var(--muted);stroke-width:1.6"/>'
+    '<text x="318" y="232" text-anchor="end" style="fill:var(--muted);font:600 12px var(--mono)">s</text>'
+    '<text x="186" y="30" text-anchor="end" style="fill:var(--muted);font:600 12px var(--mono)">T</text>'
+    # ciclo rectangular (Carnot en T-s)
+    '<path d="M222 176 V76 H298 V176 Z" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round"/>'
+    '<text x="260" y="132" text-anchor="middle" style="fill:var(--accent);font:600 13px var(--display)">ciclo</text>'
+    '<text x="260" y="94" text-anchor="middle" style="fill:var(--c8);font:600 11px var(--mono)">T H</text>'
+    '<text x="260" y="196" text-anchor="middle" style="fill:var(--c2);font:600 11px var(--mono)">T C</text>'
+    '</svg>')
+
+
 def r_hero(n, ctx):
     eyebrow, titulo, sub = pad(n['args'], 3)
     return (f'<header class="hero"><div class="hero-in"><div class="hero-txt"><div class="eyebrow">{en_linea(eyebrow)}</div>'
             f'<h1>{titulo}</h1><p class="sub">{en_linea_m(sub)}</p>'
-            f'<div class="fecha">Última actualización: {FECHA}</div>{cuerpo(n["body"])}</div></div></header>'
+            f'<div class="fecha">Última actualización: {FECHA}</div>{cuerpo(n["body"])}</div>'
+            f'<div class="hero-art" aria-hidden="false">{PORTADA_SVG}</div></div></header>'
             '\x01PAGINAS\x01')
 
 
