@@ -63,6 +63,19 @@ $$\mathrm{COP} = \frac{\dot Q_{\text{evap}}}{\dot W} = \frac{27{,}23}{11{,}69} =
 COP ≈ 2,33. Con temperaturas de 243 K (frío) y 298 K (caliente), el Carnot daría 243/55 = 4,42: el ciclo real llega a más de la mitad.
 @fin
 
+@ejemplo Refrigerador real frente a Carnot
+@enunciado
+Un congelador mantiene 255 K en una cocina a 300 K y extrae 5 kW del interior. Su COP real es 3,4. Calcula el COP máximo posible, la potencia mínima y la potencia consumida.
+@antes
+El límite lo da el refrigerador de Carnot: COP_max = T_L/(T_H − T_L), con temperaturas en kelvin. La potencia es W = Q_L/COP.
+@paso COP máximo
+$$COP_{max} = \frac{T_L}{T_H - T_L} = \frac{255}{300-255} = 5{,}67$$
+@paso Potencias
+$$\dot W_{min} = \frac{5}{5{,}67} = 0{,}88\ \text{kW}\qquad \dot W_{real} = \frac{5}{3{,}4} = 1{,}47\ \text{kW}$$
+@resultado
+COP_max ≈ 5,67; W_min ≈ 0,88 kW y W_real ≈ 1,47 kW: el equipo real alcanza el 60 % del límite de Carnot.
+@fin
+
 @ojo Signo del balance de entropía en la cámara flash
 La solución de referencia escribe el balance de entropía con el signo invertido y obtiene −1,04·10⁻⁴ kW/K. El balance correcto es Ṡ_gen = ṁ_a s₁ + ṁ_B s₅ − ṁ_a s₄ − ṁ_B s₈ = +7,9·10⁻⁵ kW/K ≈ 0. Como es positivo, el proceso es posible. En el examen, un valor negativo no es una respuesta válida.
 

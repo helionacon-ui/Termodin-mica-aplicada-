@@ -47,6 +47,33 @@ $$\eta_{\text{Diesel}} = 1 - \frac{1}{16^{0{,}4}}\cdot\frac{2^{1{,}4} - 1}{1{,}4
 η_Otto ≈ 56,5 %; η_Diesel ≈ 61,4 % (con r = 16 y r_c = 2). Diesel gana con mayor compresión; a igual r, Diesel rinde menos.
 @fin
 
+@ejemplo Otto: rendimiento y presión media efectiva
+@enunciado
+Ciclo Otto de aire estándar con r = 9, T₁ = 300 K y P₁ = 100 kPa. Se aportan q_ent = 1000 kJ/kg. Calcula el rendimiento, T₃ y la presión media efectiva. k = 1,4, c_v = 0,718, R = 0,287 kJ/(kg·K).
+@antes
+El rendimiento solo depende de r: η = 1 − r^(1−k). T₂ sale de la compresión adiabática y T₃ del aporte de calor a volumen constante. La presión media efectiva es el trabajo neto entre la cilindrada específica.
+@paso Rendimiento y temperaturas
+$$\eta = 1 - 9^{-0{,}4} = 0{,}5848\qquad T_2 = T_1 r^{k-1} = 300\cdot 9^{0{,}4} = 722{,}5\ \text{K}\qquad T_3 = T_2 + \frac{q_{ent}}{c_v} = 2115\ \text{K}$$
+@paso Trabajo neto y presión media efectiva
+$$w_{neto} = \eta\,q_{ent} = 584{,}8\ \text{kJ/kg}\qquad v_1 = \frac{RT_1}{P_1} = 0{,}861\ \text{m³/kg}$$
+$$PME = \frac{w_{neto}}{v_1 - v_2} = \frac{w_{neto}}{v_1(1 - 1/r)} = 764\ \text{kPa}$$
+@resultado
+η ≈ 58,5 %; T₃ ≈ 2115 K; PME ≈ 764 kPa (≈ 7,6 bar).
+@fin
+
+@ejemplo Rendimiento del ciclo Diesel
+@enunciado
+Un ciclo Diesel de aire estándar tiene r = 18 y relación de corte r_c = 2 (k = 1,4). Calcula su rendimiento y compáralo con un Otto de la misma relación de compresión.
+@antes
+En el Diesel, el calor se aporta a presión constante, y η = 1 − r^(1−k) · (r_c^k − 1)/(k (r_c − 1)). El factor entre paréntesis siempre es mayor que 1.
+@paso Otto con r = 18
+$$\eta_{Otto} = 1 - 18^{-0{,}4} = 0{,}6853$$
+@paso Diesel
+$$\eta_{Diesel} = 1 - 18^{-0{,}4}\cdot\frac{2^{1{,}4} - 1}{1{,}4\,(2-1)} = 0{,}6316$$
+@resultado
+η_Diesel ≈ 63,2 % frente a η_Otto ≈ 68,5 %. A igual relación de compresión, el Otto rinde más; pero el Diesel admite r mucho mayor (no hay detonación), y por eso en la práctica rinde más.
+@fin
+
 @trampa Lo que el examen mira en motores
 - No confundir r (compresión) con r_c (corte).
 - Escribir η_Otto con r_c. Otto no tiene r_c.

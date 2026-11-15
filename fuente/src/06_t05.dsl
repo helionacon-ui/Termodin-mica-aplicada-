@@ -59,6 +59,32 @@ $$\mathrm{COP}_{\text{bomba}} = \frac{T_H}{T_H - T_C} = \frac{800}{500} = 1{,}60
 η = 62,5 %; COP refrigerador = 0,60; COP bomba = 1,60. Observa que COP bomba = COP refrigerador + 1 (en Carnot).
 @fin
 
+@ejemplo ¿Es posible esta máquina térmica?
+@enunciado
+Un inventor afirma que su motor, entre un foco a 600 K y otro a 300 K, toma 1000 kJ del foco caliente y produce 700 kJ de trabajo. ¿Es posible?
+@antes
+Ninguna máquina entre dos focos puede superar el rendimiento de Carnot, η_max = 1 − T_L/T_H (temperaturas absolutas).
+@paso Rendimiento máximo
+$$\eta_{max} = 1 - \frac{T_L}{T_H} = 1 - \frac{300}{600} = 0{,}50$$
+@paso Rendimiento declarado
+$$\eta = \frac{W}{Q_H} = \frac{700}{1000} = 0{,}70$$
+@resultado
+η = 0,70 > η_max = 0,50: **imposible**, viola el segundo principio (el calor cedido sería 300 kJ y la entropía total disminuiría). Como máximo podría producir 500 kJ.
+@fin
+
+@ejemplo Bomba de calor de Carnot
+@enunciado
+Una bomba de calor funciona entre el exterior a 270 K y una vivienda a 300 K. Calcula el COP máximo y la potencia eléctrica necesaria para dar 5 kW de calefacción. Compara con una bomba real de COP = 4.
+@antes
+Para una bomba de calor, COP_max = T_H/(T_H − T_L) (con T en kelvin), y la potencia necesaria es W = Q_H / COP.
+@paso COP de Carnot
+$$COP_{max} = \frac{T_H}{T_H - T_L} = \frac{300}{300 - 270} = 10{,}0$$
+@paso Potencias
+$$\dot W_{min} = \frac{5}{10{,}0} = 0{,}50\ \text{kW}\qquad \dot W_{real} = \frac{5}{4} = 1{,}25\ \text{kW}$$
+@resultado
+COP_max = 10,0; mínimo 0,50 kW frente a 1,25 kW de la real: la bomba real alcanza el 40 % del límite teórico.
+@fin
+
 @trampa Dos errores frecuentes
 - Calcular Carnot con °C: el resultado puede ser negativo o imposible.
 - Confundir COP refrigerador con COP bomba. El refrigerador quiere sacar calor del frío (Q_C); la bomba quiere meterlo al caliente (Q_H).

@@ -75,6 +75,21 @@ $$S_{\text{gen}} = 0{,}003333 - 0{,}002 = 0{,}001333\ \text{kJ/K}$$
 S_gen = 1,333·10⁻³ kJ/K > 0: el proceso es posible e irreversible.
 @fin
 
+@ejemplo Compresor adiabático con rendimiento isentrópico
+@enunciado
+Un compresor adiabático comprime aire de 100 kPa y 300 K a 800 kPa con rendimiento isentrópico η_c = 0,8. Calcula T₂, el trabajo específico y la entropía generada. k = 1,4, c_p = 1,005 y R = 0,287 kJ/(kg·K).
+@antes
+Primero la compresión ideal (isentrópica) para saber el trabajo mínimo; después se corrige con el rendimiento. La entropía generada es el cambio de entropía del aire (adiabático).
+@paso Compresión isentrópica
+$$T_{2s} = T_1\left(\frac{P_2}{P_1}\right)^{\frac{k-1}{k}} = 300\cdot 8^{0{,}2857} = 543{,}4\ \text{K}\qquad w_s = c_p(T_{2s}-T_1) = 244{,}7\ \text{kJ/kg}$$
+@paso Compresión real
+$$w = \frac{w_s}{\eta_c} = 305{,}8\ \text{kJ/kg}\qquad T_2 = T_1 + \frac{w}{c_p} = 604{,}3\ \text{K}$$
+@paso Entropía generada
+$$s_{gen} = c_p\ln\frac{T_2}{T_1} - R\ln\frac{P_2}{P_1} = 0{,}1070\ \text{kJ/(kg·K)}$$
+@resultado
+T₂ ≈ 604,3 K; w ≈ 305,8 kJ/kg (61,2 kJ/kg más que el ideal); s_gen ≈ 0,107 kJ/(kg·K) > 0, como exige el segundo principio.
+@fin
+
 @trampa Los errores de signo de todo el tema
 - Escribir S_gen = ΔS_sistema. No es lo mismo: el balance incluye los focos o el entorno.
 - Decir "adiabático = isentrópico". Un adiabático puede ser irreversible (S_gen > 0). Isentrópico = adiabático **y** reversible.

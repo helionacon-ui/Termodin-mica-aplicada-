@@ -83,6 +83,34 @@ $$\Delta s = 0{,}6966 - 0{,}3153 = 0{,}3813\ \text{kJ/(kg·K)}$$
 Δs ≈ 0,381 kJ/(kg·K). Positivo: aumenta la entropía, como esperamos al calentar.
 @fin
 
+@ejemplo Compresión isoterma de aire
+@enunciado
+0,2 kg de aire a 100 kPa y 300 K se comprimen lentamente a temperatura constante hasta 400 kPa. Calcula V₁, V₂, el trabajo y el calor. R = 0,287 kJ/(kg·K).
+@antes
+Gas ideal con T constante: P V = m R T = constante, así que V₂ = V₁ P₁/P₂ y la energía interna no cambia (ΔU = 0). Luego Q = W.
+@paso Volúmenes
+$$V_1 = \frac{mRT}{P_1} = \frac{0{,}2\cdot 0{,}287\cdot 300}{100} = 0{,}1722\ \text{m³}\qquad V_2 = V_1\frac{P_1}{P_2} = 0{,}0430\ \text{m³}$$
+@paso Trabajo isotermo
+$$W = mRT\ln\frac{V_2}{V_1} = 0{,}2\cdot0{,}287\cdot300\cdot\ln\frac{1}{4} = -23{,}87\ \text{kJ}$$
+@paso Calor
+$$\Delta U = 0 \;\Rightarrow\; Q = W = -23{,}87\ \text{kJ}$$
+@resultado
+V₁ ≈ 0,1722 m³; V₂ ≈ 0,0430 m³; W ≈ -23,87 kJ (se realiza trabajo sobre el gas); Q ≈ -23,87 kJ (el gas cede calor al ambiente).
+@fin
+
+@ejemplo Calentamiento de nitrógeno en un depósito rígido
+@enunciado
+Un depósito de 1 m³ contiene N₂ a 200 kPa y 300 K. Se calienta hasta 450 K. Calcula la masa, la presión final y el calor. R = 0,2968 kJ/(kg·K), c_v = 0,743 kJ/(kg·K).
+@antes
+Volumen constante: la masa no cambia y P/T = constante. No hay trabajo de frontera (W = 0), de modo que Q = ΔU.
+@paso Masa y presión final
+$$m = \frac{P_1V}{RT_1} = \frac{200\cdot 1}{0{,}2968\cdot 300} = 2{,}246\ \text{kg}\qquad P_2 = P_1\frac{T_2}{T_1} = 200\cdot\frac{450}{300} = 300\ \text{kPa}$$
+@paso Calor
+$$Q = \Delta U = m c_v (T_2 - T_1) = 2{,}246\cdot 0{,}743\cdot 150 = 250{,}3\ \text{kJ}$$
+@resultado
+m ≈ 2,246 kg; P₂ = 300 kPa; Q ≈ 250,3 kJ.
+@fin
+
 @masfondo Cuándo falla el modelo de gas ideal
 Cerca de la saturación o a presiones de decenas de bar, el aire y el vapor se separan del modelo. El factor de compresibilidad Z = Pv/(RT) mide la desviación: Z = 1 es ideal. Para el aire a temperatura ambiente y 1 bar, Z ≈ 1 con error inferior al 0,1 %. Para el agua cerca de la saturación, Z ≈ 0,9 y no sirve el modelo.
 

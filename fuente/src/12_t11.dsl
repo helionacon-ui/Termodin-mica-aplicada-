@@ -64,6 +64,21 @@ Interpolando en la tabla de saturación del agua entre 50 °C (12,35 kPa) y 55 �
 y_H₂O ≈ 0,1309; p_v ≈ 13,26 kPa; T de rocío ≈ 51,5 °C. Si la chimenea está por debajo de esta T, el vapor condensa.
 @fin
 
+@ejemplo Aire teórico del propano
+@enunciado
+Calcula la relación aire-combustible teórica (en kmol y en masa) para la combustión completa del propano C₃H₈ con aire (21 % O₂, 79 % N₂, es decir, 3,76 mol de N₂ por mol de O₂).
+@antes
+Se ajusta la reacción con las condiciones de combustión completa: todo el C pasa a CO₂, todo el H a H₂O, y el N₂ no reacciona.
+@paso Ajuste
+$$\text{C}_3\text{H}_8 + 5\,(\text{O}_2 + 3{,}76\,\text{N}_2) \rightarrow 3\,\text{CO}_2 + 4\,\text{H}_2\text{O} + 18{,}8\,\text{N}_2$$
+Carbonos: 3 → 3 CO₂. Hidrógenos: 8 → 4 H₂O. Oxígeno necesario: 3·2 + 4·1 = 10 átomos = 5 O₂.
+@paso Relación aire-combustible
+$$AF_{molar} = 5\cdot 4{,}76 = 23{,}8\ \text{kmol aire/kmol comb.}$$
+$$AF_{masa} = \frac{5\cdot 31{,}998 + 18{,}8\cdot 28{,}013}{3\cdot 12{,}011 + 8\cdot 1{,}008} = \frac{686{,}6}{44{,}10} = 15{,}57\ \text{kg aire/kg comb.}$$
+@resultado
+23,8 kmol de aire por kmol de propano, es decir, ≈ 15,6 kg de aire por kg de propano.
+@fin
+
 @ojo Error de la solución de referencia en la fracción de agua
 La solución de referencia escribe y_H₂O = 2/(11,28 + 1 + 2) = 0,14 atm, omitiendo el CO₂ de los productos. El total correcto incluye el CO₂: 1 + 2 + 1 + 11,28 = 15,28 mol, y la fracción es 0,1309.
 

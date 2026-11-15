@@ -80,6 +80,36 @@ En la tabla de vapor sobrecalentado de Moran (A-4), a P = 1,0 MPa y T = 200 °C 
 v ≈ 0,2060 m³/kg; h ≈ 2827,9 kJ/kg.
 @fin
 
+@ejemplo Título y masa de vapor en un depósito
+@enunciado
+Un depósito rígido de 0,1 m³ contiene 5 kg de agua a 200 °C. Calcula el título, la masa de vapor y la entalpía específica. Datos de saturación a 200 °C: v_f = 0,001157 m³/kg, v_g = 0,12736 m³/kg, h_f = 852,45 kJ/kg, h_fg = 1939,8 kJ/kg.
+@antes
+Primero el volumen específico, v = V/m. Si queda entre v_f y v_g, es mezcla y el título sale despejando de v = v_f + x(v_g − v_f).
+@paso Volumen específico
+$$v = \frac{V}{m} = \frac{0{,}1}{5} = 0{,}02\ \text{m³/kg}$$
+Como v_f < 0,02 < v_g, es una mezcla saturada.
+@paso Título y masa de vapor
+$$x = \frac{v - v_f}{v_g - v_f} = \frac{0{,}02 - 0{,}001157}{0{,}12736 - 0{,}001157} = 0{,}1493$$
+$$m_v = x\,m = 0{,}1493\cdot 5 = 0{,}747\ \text{kg}$$
+@paso Entalpía
+$$h = h_f + x\,h_{fg} = 852{,}45 + 0{,}1493\cdot 1939{,}8 = 1142{,}1\ \text{kJ/kg}$$
+@resultado
+x ≈ 0,149 (un 14,9 % de la masa es vapor, pero ocupa casi todo el volumen); m_v ≈ 0,75 kg; h ≈ 1142 kJ/kg.
+@fin
+
+@ejemplo Líquido comprimido a 200 °C y 5 MPa
+@enunciado
+Agua a 200 °C y 5 MPa. Estima su entalpía. A 200 °C: P_sat = 1553,8 kPa, v_f = 0,001157 m³/kg, h_f = 852,45 kJ/kg.
+@antes
+Como P = 5 MPa > P_sat(200 °C) = 1,55 MPa, el agua está en fase líquida comprimida. Se aproxima con las propiedades del líquido saturado a la misma temperatura y una pequeña corrección de presión.
+@paso Comprobar la región
+Con T = 200 °C, la presión de saturación es 1553,8 kPa. Como 5000 kPa > 1553,8 kPa, el agua está **subenfriada** (líquido comprimido).
+@paso Aproximación del líquido
+$$h \approx h_f(T) + v_f\,(P - P_{sat}) = 852{,}45 + 0{,}001157\,(5000 - 1553{,}8) = 856{,}4\ \text{kJ/kg}$$
+@resultado
+h ≈ 856,4 kJ/kg: casi igual a h_f (la corrección de presión es de 4,0 kJ/kg). El líquido apenas depende de la presión.
+@fin
+
 @trampa Un error que te cuesta el problema
 Para vapor sobrecalentado, el valor v = 0,2 m³/kg no sale de x: con las columnas de saturación daría x = 1,58 (imposible). Es la señal de que estás fuera de la mezcla.
 

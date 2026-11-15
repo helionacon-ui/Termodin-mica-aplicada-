@@ -56,6 +56,34 @@ $$w_{\text{neto}} = 540{,}2 - 244{,}7 = 295{,}5\ \text{kJ/kg}$$
 η ≈ 44,8 %; T₂ ≈ 543,4 K; T₄ ≈ 662,5 K; w_comp ≈ 244,7 kJ/kg; w_turb ≈ 540,2 kJ/kg; w_neto ≈ 295,5 kJ/kg.
 @fin
 
+@ejemplo Brayton con regeneración ideal
+@enunciado
+Un ciclo Brayton de aire estándar tiene T₁ = 300 K, T₃ = 1200 K y r_p = 8 (k = 1,4). Compara el rendimiento sin regeneración con el de un regenerador ideal.
+@antes
+Sin regenerador, η = 1 − r_p^(−(k−1)/k). Con regenerador ideal, el aire de la compresión se calienta hasta T₄ con los gases de escape y el rendimiento pasa a η = 1 − (T₁/T₃) r_p^((k−1)/k).
+@paso Sin regeneración
+$$\eta = 1 - 8^{-0{,}2857} = 0{,}448$$
+@paso Con regeneración ideal
+$$\eta_{reg} = 1 - \frac{T_1}{T_3}\,r_p^{\frac{k-1}{k}} = 1 - \frac{300}{1200}\cdot 8^{0{,}2857} = 0{,}547$$
+@resultado
+η ≈ 44,8 % sin regenerar y 54,7 % con regenerador ideal (+9,9 puntos). La regeneración compensa cuando r_p es bajo y T₃ alta; para relaciones de presión altas deja de ser útil.
+@fin
+
+@ejemplo Brayton con rendimientos isentrópicos
+@enunciado
+El mismo ciclo (T₁ = 300 K, T₃ = 1200 K, r_p = 8), pero con η_compresor = 0,80 y η_turbina = 0,85. Calcula trabajo neto específico y rendimiento. c_p = 1,005 kJ/(kg·K).
+@antes
+Se calculan las temperaturas ideales (isentrópicas) y se corrigen con los rendimientos. El rendimiento del ciclo baja porque el compresor consume más y la turbina produce menos.
+@paso Temperaturas
+$$T_{2s} = 543{,}4\ \text{K}\Rightarrow T_2 = T_1 + \frac{T_{2s}-T_1}{0{,}8} = 604{,}3\ \text{K}$$
+$$T_{4s} = 662{,}5\ \text{K}\Rightarrow T_4 = T_3 - 0{,}85\,(T_3 - T_{4s}) = 743{,}1\ \text{K}$$
+@paso Trabajos y calor
+$$w_c = c_p(T_2 - T_1) = 305{,}8\qquad w_t = c_p(T_3 - T_4) = 459{,}2\ \text{kJ/kg}$$
+$$w_{neto} = 153{,}4\ \text{kJ/kg}\qquad q_{ent} = c_p(T_3 - T_2) = 598{,}7\ \text{kJ/kg}$$
+@resultado
+w_neto ≈ 153,4 kJ/kg; η = w_neto/q_ent ≈ 25,6 % (frente al 44,8 % ideal). Alrededor de dos tercios del trabajo de la turbina se gastan en comprimir el aire.
+@fin
+
 @trampa Lo que sale en un examen de gas
 - Usar °C en las temperaturas del ciclo. Todo en kelvin.
 - Confundir la relación de compresión r_p con la de volumen.

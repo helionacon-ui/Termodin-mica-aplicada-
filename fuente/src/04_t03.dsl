@@ -78,6 +78,19 @@ $$Q = \Delta U + W = -70{,}5 + 93{,}9 = 23{,}4\ \text{kJ}$$
 P₂ ≈ 121,8 kPa; T₂ ≈ 243,7 K; W ≈ 93,9 kJ; ΔU ≈ −70,5 kJ; Q ≈ 23,4 kJ (entra calor al gas).
 @fin
 
+@ejemplo Compresión adiabática reversible de aire
+@enunciado
+1 kg de aire a 100 kPa y 300 K se comprime adiabática y reversiblemente hasta 1000 kPa. Calcula T₂ y el trabajo necesario. k = 1,4 y c_v = 0,718 kJ/(kg·K).
+@antes
+Adiabático reversible de gas ideal: P V^k = constante, o bien T₂ = T₁ (P₂/P₁)^((k−1)/k). Como Q = 0, la primera ley da W = −ΔU.
+@paso Temperatura final
+$$T_2 = T_1\left(\frac{P_2}{P_1}\right)^{\frac{k-1}{k}} = 300\cdot 10^{0{,}2857} = 579{,}2\ \text{K}$$
+@paso Trabajo
+$$W = -\Delta U = -m c_v (T_2 - T_1) = -0{,}718\,(579{,}2 - 300) = -200{,}5\ \text{kJ}$$
+@resultado
+T₂ ≈ 579,2 K; W ≈ -200,5 kJ: hay que aportar 200,5 kJ por kg al gas, que se calienta 279 K sin intercambiar calor.
+@fin
+
 @trampa Signos y W: lo que más se pierde
 - Si el gas se expande, W > 0 (sale). Si lo comprimes, W < 0.
 - Un ΔU negativo no significa que el gas "pierda calor": significa que su temperatura baja. Con W > 0 el Q puede ser positivo aunque el gas se enfríe.
