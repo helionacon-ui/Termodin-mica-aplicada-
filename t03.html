@@ -67,7 +67,18 @@ details>summary{line-height:1.7;padding-block:.5em}
 <div class="box intu" id="b58" data-s="1"><h4>Intuición</h4><p>El calor y el trabajo son dos formas de transferir energía. La energía total del sistema cambia por lo que entra menos lo que sale. <strong>Trucos</strong></p>
 <ol><li>Fija la convención de signos al principio del problema: Q positivo si entra al sistema; W positivo si lo realiza el sistema.</li><li>ΔU y ΔH no dependen del camino; Q y W sí. Si te piden Q o W, necesitas conocer el camino.</li><li>Trabajo de expansión W = ∫P dV. En un proceso isocoro W = 0 y Q = ΔU.</li><li>En un ciclo completo ΔU = 0, así que Q_neto = W_neto, y el rendimiento es η = W_neto / Q_entrada.</li><li>El trabajo de rozamiento |W_r| acaba como energía interna: W₁₂ = ∫P dV − |W_r|.</li><li>Si hay rozamiento, expansión libre o diferencias finitas de presión o temperatura, el proceso es irreversible.</li></ol></div>
 <div class="box trap" id="b59" data-s="1"><h4>Qué suele fallar</h4><p>Tomar Q y W como propiedades del estado. Solo ΔU, ΔH y ΔS son independientes del camino.</p></div></details>
-<article class="ex ejemplo" id="ex60" data-s="1"><div class="tags"><span class="tag">Ejemplo resuelto</span></div><h3 id="t3-isobara-paso">Calentamiento isobaro de aire, paso a paso</h3>
+<!--deep--><h3 id="t3-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
+<h4>1. Primer principio para sistemas cerrados</h4>
+<div class="box key deepnote"><b>Idea clave.</b> la energía de un sistema cerrado cambia por el calor que entra y el trabajo que sale. El trabajo de expansión es el área bajo la curva \(P\)–\(v\).</div>
+<div class="eqd">\[Q-W=\Delta U+\Delta E_c+\Delta E_p\]</div>
+<ul><li>Criterio de signos: \(Q\) positivo si entra al sistema; \(W\) positivo si sale del sistema.</li><li>En un sistema cerrado sin variación de energía cinética ni potencial: \(Q-W=\Delta U\).</li></ul>
+<details class="dem"><summary><span class="pn">∴</span>Trabajo de expansión y compresión</summary><div class="inner"><div class="eqd">\[W_{12}=\int_1^2 P\,\mathrm dV\]</div>
+<p>El valor depende del camino. Por eso el trabajo no es una propiedad: depende de cómo se pasa de un estado a otro.</p>
+<div class="box trap deepnote"><b>Cuidado.</b> Para un proceso isocoro, el trabajo de expansión es cero, aunque haya calor.</div></div></details>
+<h4>2. Balance con entalpía</h4>
+<p>En procesos a presión constante, el calor es igual a la variación de entalpía, porque el trabajo de expansión se incluye en \(h=u+Pv\).</p>
+<div class="eqd">\[Q=\Delta H\quad\text{(isobaro, sin otro trabajo)}\]</div>
+</div><!--/deep--><article class="ex ejemplo" id="ex60" data-s="1"><div class="tags"><span class="tag">Ejemplo resuelto</span></div><h3 id="t3-isobara-paso">Calentamiento isobaro de aire, paso a paso</h3>
 <p>En un sistema cerrado, la primera ley se escribe Q − W = ΔU. Con un émbolo a presión constante, el trabajo es p(V₂ − V₁), y el calor sale de sumar ese trabajo al aumento de energía interna.</p>
 <figure class="fig"><p class="ft">Figura interactiva · 1 kg de aire, p = 2 bar, V: 0,2 → 0,5 m³</p>
 <div id="iso-paso" style="font-family:system-ui,sans-serif"><input id="iso-paso-s" type="range" min="0" max="6" step="1" value="0" style="width:100%"><div id="iso-paso-l" style="font-size:13px;color:#56635e;margin:4px 0">paso de la resolución (0 = problema): 0</div><canvas id="iso-paso-c" width="640" height="300" style="width:100%;max-width:640px;height:auto;display:block"></canvas><div id="iso-paso-t" style="font-size:15px;line-height:1.5;margin-top:8px;min-height:90px"></div></div>
