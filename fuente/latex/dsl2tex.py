@@ -153,7 +153,7 @@ def generar():
                     break
     partes.append(r'''\begin{center}
 {\LARGE\bfseries Exámenes resueltos}\\[4pt]
-{\large Termodinámica Aplicada · Grado en Ingeniería Biomédica · UPCT}
+{\large Termodinámica Aplicada · Grado en Ingeniería Biomédica}
 \end{center}
 \vspace{4pt}
 ''')

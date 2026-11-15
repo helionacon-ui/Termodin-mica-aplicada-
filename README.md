@@ -1,6 +1,6 @@
 # Termodinámica Aplicada · Guía de estudio
 
-Guía de estudio de Termodinámica Aplicada (521102006), Grado en Ingeniería Biomédica, UPCT, curso 2026-27.
+Guía de estudio de Termodinámica Aplicada (521102006), Grado en Ingeniería Biomédica, curso 2026-27.
 Actualizada el 9 de noviembre de 2026.
 
 Versión en línea: https://helionacon-ui.github.io/termodin-mica-aplicada-/

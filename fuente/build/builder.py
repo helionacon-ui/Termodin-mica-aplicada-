@@ -778,7 +778,7 @@ def pagina_maestra(secciones, res):
 <body data-version="{FECHA}">
 <a class="skip" href="#principal">Saltar al contenido</a>
 <div class="hub-bar">
-  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA · UPCT</a>
+  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA</a>
   <span class="fecha-cab">Actualizada el {FECHA_CORTA}</span>
   <button class="btn theme-btn" type="button" id="tema" aria-label="Cambiar tema claro/oscuro">Tema</button>
 </div>
@@ -794,7 +794,7 @@ def pagina_maestra(secciones, res):
 {cuerpo_}
   </main>
 </div>
-<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · UPCT · curso 2026-27 · Guía de estudio.</div>
+<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27 · Guía de estudio.</div>
 <div>Última actualización: {FECHA}. Las soluciones son de referencia y se verifican con código; los simuladores son aproximaciones didácticas.</div></footer>
 <script type="application/json" id="sindex">{idx}</script>
 <script>
@@ -847,7 +847,7 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
 <body data-index="search-index.json" data-page="{nombre_archivo}">
 <a class="skip" href="#principal">Saltar al contenido</a>
 <div class="hub-bar">
-  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA · UPCT</a>
+  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA</a>
   <span class="fecha-cab">Actualizada el {FECHA_CORTA}</span>
   <button class="btn theme-btn" type="button" id="tema" aria-label="Cambiar tema claro/oscuro">Tema</button>
 </div>
@@ -865,7 +865,7 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
 {pager}
   </main>
 </div>
-<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · UPCT · curso 2026-27.</div>
+<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27.</div>
 <div>Última actualización: {FECHA}.</div></footer>
 <script src="sims.js" defer></script>
 <script src="app.js" defer></script>
@@ -904,7 +904,7 @@ def escribir_pwa(secciones_por_bloque):
     manifest = {
         'name': TITULO + ' · Guía de estudio',
         'short_name': 'Guía TA',
-        'description': 'Guía de estudio de Termodinámica Aplicada (521102006), UPCT, curso 2026-27.',
+        'description': 'Guía de estudio de Termodinámica Aplicada (521102006), curso 2026-27.',
         'lang': 'es',
         'start_url': './index.html',
         'scope': './',

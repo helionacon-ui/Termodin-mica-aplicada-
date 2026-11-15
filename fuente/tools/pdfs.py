@@ -10,7 +10,7 @@ OUT = os.path.join(ROOT, 'out', 'pdf')
 os.makedirs(OUT, exist_ok=True)
 FECHA = '9 nov 2026'
 
-CABECERA = '<div style="font-size:7.5px;width:100%;padding:0 12mm;color:#667;text-align:right">Termodinámica Aplicada · 521102006 · Grado en Ingeniería Biomédica · UPCT · curso 2026-27</div>'
+CABECERA = '<div style="font-size:7.5px;width:100%;padding:0 12mm;color:#667;text-align:right">Termodinámica Aplicada · 521102006 · Grado en Ingeniería Biomédica · curso 2026-27</div>'
 PIE = ('<div style="font-size:7.5px;width:100%;padding:0 12mm;color:#667;display:flex;justify-content:space-between">'
        f'<span>Actualizada el {FECHA}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>')
 

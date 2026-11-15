@@ -1,5 +1,5 @@
 @bloque inicio | | | #2456d6 | | Inicio | Empieza aquí
-@hero Termodinámica Aplicada · 521102006 · Grado en Ingeniería Biomédica · UPCT · 2026-27 | Termodinámica aplicada, <span>desde cero</span> | Teoría explicada sin dar nada por sabido, ejemplos resueltos paso a paso, exámenes resueltos, simuladores y autoevaluación. Pensada para aprobar.
+@hero Termodinámica Aplicada · 521102006 · Grado en Ingeniería Biomédica · 2026-27 | Termodinámica aplicada, <span>desde cero</span> | Teoría explicada sin dar nada por sabido, ejemplos resueltos paso a paso, exámenes resueltos, simuladores y autoevaluación. Pensada para aprobar.
 @botones
 Empezar por el tema 1 | #t01 | pri
 Exámenes resueltos | #examenes
