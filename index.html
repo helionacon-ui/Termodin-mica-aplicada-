@@ -15,24 +15,64 @@
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -60,10 +100,10 @@ details>summary{line-height:1.7;padding-block:.5em}
 <section class="sec" id="paginas"><div class="sh"><span class="badge" aria-hidden="true">≡</span><div class="shx"><p class="kick">Contenido</p><h2>Páginas de la guía</h2></div></div><p class="pg-intro">Empieza por la primera tarjeta y sigue el orden. Cada tema tiene teoría, ejemplos, simuladores y tarjetas de repaso.</p><h3 class="pg-h">Antes de nada</h3><div class="pgrid"><a class="pcard" href="examen.html" style="--tc:var(--c0)"><span class="pc-ico">E</span><b>Examen y estrategia</b><em>Abrir →</em></a></div><h3 class="pg-h">Temas por unidad</h3><p class="pg-ud">UD1 · Fundamentos</p><div class="pgrid"><a class="pcard" href="t01.html" style="--tc:var(--c1)"><span class="pc-ico">T0</span><b>T1 · Agua y refrigerantes</b><small>Mezcla a 200 °C · Vapor sobrecalentado: 1 MPa y 200 °C · Título y masa de vapor en un depósito</small><em>Abrir →</em></a><a class="pcard" href="t02.html" style="--tc:var(--c1)"><span class="pc-ico">T0</span><b>T2 · Gases ideales</b><small>Masa de aire en un depósito · Variación de entropía del aire · Compresión isoterma de aire</small><em>Abrir →</em></a></div><p class="pg-ud">UD2 · Sistemas</p><div class="pgrid"><a class="pcard" href="t03.html" style="--tc:var(--c2)"><span class="pc-ico">T0</span><b>T3 · Sistemas cerrados</b><small>Calentamiento isobaro de aire en un cilindro · Expansión politrópica de aire · Compresión adiabática reversible de aire</small><em>Abrir →</em></a><a class="pcard" href="t04.html" style="--tc:var(--c2)"><span class="pc-ico">T0</span><b>T4 · Sistemas abiertos</b><small>Turbina de vapor con rendimiento isentrópico · Tobera adiabática · Válvula de estrangulamiento sobre vapor de agua</small><em>Abrir →</em></a></div><p class="pg-ud">UD3 · Segundo principio</p><div class="pgrid"><a class="pcard" href="t05.html" style="--tc:var(--c3)"><span class="pc-ico">T0</span><b>T5 · Segundo principio</b><small>Carnot entre 800 K y 300 K · ¿Es posible esta máquina térmica? · Bomba de calor de Carnot</small><em>Abrir →</em></a><a class="pcard" href="t06.html" style="--tc:var(--c3)"><span class="pc-ico">T0</span><b>T6 · Entropía y balances</b><small>Entropía generada en un proceso adiabático de aire · Transferencia de calor entre dos focos · Compresor adiabático con rendimiento isentrópico</small><em>Abrir →</em></a></div><p class="pg-ud">UD4 · Ciclos de potencia</p><div class="pgrid"><a class="pcard" href="t07.html" style="--tc:var(--c4)"><span class="pc-ico">T0</span><b>T7 · Turbinas de vapor y de gas</b><small>Brayton de aire frío con r_p = 8 · Brayton con regeneración ideal · Brayton con rendimientos isentrópicos</small><em>Abrir →</em></a><a class="pcard" href="t08.html" style="--tc:var(--c4)"><span class="pc-ico">T0</span><b>T8 · Motores alternativos</b><small>Otto y Diesel a igual compresión · Otto: rendimiento y presión media efectiva · Rendimiento del ciclo Diesel</small><em>Abrir →</em></a></div><p class="pg-ud">UD5 · Refrigeración</p><div class="pgrid"><a class="pcard" href="t09.html" style="--tc:var(--c5)"><span class="pc-ico">T0</span><b>T9 · Refrigeración</b><small>Refrigerador de dos etapas con cámara flash · Refrigerador real frente a Carnot</small><em>Abrir →</em></a></div><p class="pg-ud">UD6 · Mezclas y combustión</p><div class="pgrid"><a class="pcard" href="t10.html" style="--tc:var(--c6)"><span class="pc-ico">T1</span><b>T10 · Mezclas y psicrometría</b><small>Entropía de mezcla de O₂ y N₂ · Aire a 25 °C con HR = 50 % · Mezcla adiabática de dos corrientes de aire</small><em>Abrir →</em></a><a class="pcard" href="t11.html" style="--tc:var(--c6)"><span class="pc-ico">T1</span><b>T11 · Combustión</b><small>Poderes caloríficos y aire del metano · Metano con 50 % de exceso de aire · Aire teórico del propano</small><em>Abrir →</em></a></div><h3 class="pg-h">Practica</h3><div class="pgrid"><a class="pcard" href="practicas.html" style="--tc:var(--c7)"><span class="pc-ico">PR</span><b>Prácticas</b><small>Práctica I1 · Estado del agua y región de trabajo · Práctica I2 · Análisis de un ciclo Brayton · Entrega y criterios</small><em>Abrir →</em></a><a class="pcard" href="examenes.html" style="--tc:var(--c7)"><span class="pc-ico">EX</span><b>Exámenes</b><small>Cilindro-émbolo con agua: calentamiento, expansión y posibilidad · Turbina de aire con difusor isentrópico · Depósito rígido de agua: calentamiento eléctrico y posibilidad</small><em>Abrir →</em></a><a class="pcard" href="autoevaluacion.html" style="--tc:var(--c8)"><span class="pc-ico">AU</span><b>Autoevaluación</b><em>Abrir →</em></a><a class="pcard" href="simulacros.html" style="--tc:var(--c8)"><span class="pc-ico">SI</span><b>Simulacros</b><small>Aire calentado a presión constante · Aire húmedo a 30 °C y HR = 60 % · Brayton de aire frío con r_p = 10</small><em>Abrir →</em></a><a class="pcard" href="demos.html" style="--tc:var(--c8)"><span class="pc-ico">DE</span><b>Demostraciones</b><small>Primera ley a presión constante: c_p − c_v = R · Variación de entropía de un gas ideal · Carnot: η = 1 − T_C/T_H desde la desigualdad de Clausius</small><em>Abrir →</em></a></div><h3 class="pg-h">Consulta rápida</h3><div class="pgrid"><a class="pcard" href="formulario.html" style="--tc:var(--c0)"><span class="pc-ico">Σ</span><b>Formulario</b><em>Abrir →</em></a><a class="pcard" href="glosario.html" style="--tc:var(--c0)"><span class="pc-ico">Aa</span><b>Glosario</b><em>Abrir →</em></a><a class="pcard" href="plan.html" style="--tc:var(--c0)"><span class="pc-ico">→</span><b>Plan de estudio</b><em>Abrir →</em></a></div></section>
 <div class="zero" id="z1" data-s="1"><p class="ft">Desde cero: Cómo usar esta guía</p><ol><li>Lee la teoría del tema con intuición antes que fórmulas. Cada tema tiene un recuadro «Desde cero» si te hace falta repasar algo.</li><li>Haz los ejemplos tapando la solución. Abre cada paso solo cuando lo hayas intentado.</li><li>Juega con los simuladores: cambia una variable y mira qué pasa. Es la forma más rápida de entender un resultado.</li><li>Marca los objetivos de cada tema. Se guardan en tu navegador.</li><li>Haz la autoevaluación y los simulacros cronometrados. Los exámenes reales son la mejor referencia para saber qué cae.</li><li>Repasa con el formulario y el glosario. La fórmula sin intuición no sirve en el examen.</li></ol></div>
 <div class="box trap" id="b2" data-s="1"><h4>Qué suele fallar</h4><ul><li><strong>Unidades</strong>: todo en kJ, kg, K, kPa. Si ves MPa o °C en una fórmula termodinámica, convierte primero.</li><li><strong>Signos</strong>: en esta guía Q &gt; 0 entra al sistema y W &gt; 0 sale del sistema (la convención de Moran). Revisa siempre cuál usa el enunciado.</li><li><strong>Tablas</strong>: la misma presión puede ser de vapor saturado en una columna y de líquido en otra. Mira siempre la región antes de interpolar.</li></ul></div>
-<div class="zero" id="z3" data-s="1"><p class="ft">Desde cero: Qué es la asignatura</p><p>La termodinámica estudia la energía: cuánta se transforma en trabajo, cuánta se pierde en forma de calor y por qué ciertos procesos son imposibles aunque cumplan la energía. Esta asignatura aplica esas ideas a máquinas reales: turbinas, motores, refrigeradores y el aire que respiras en una sala con humedad.</p>
+<div class="zero" id="z3" data-s="1"><p class="ft">Desde cero: Qué es la asignatura</p><p class="lede">La termodinámica estudia la energía: cuánta se transforma en trabajo, cuánta se pierde en forma de calor y por qué ciertos procesos son imposibles aunque cumplan la energía. Esta asignatura aplica esas ideas a máquinas reales: turbinas, motores, refrigeradores y el aire que respiras en una sala con humedad.</p>
 <ul><li>Son 4,5 ECTS, presenciales. Hay 11 temas agrupados en 6 unidades didácticas.</li><li>Se trabaja con tablas de propiedades (agua, refrigerantes, aire) y con el software EES en las prácticas.</li><li>La idea clave de toda la guía: <strong>un balance</strong> (de masa, de energía o de entropía) y <strong>un tipo de proceso</strong>. Casi todo problema es eso.</li></ul></div>
 <div class="box intu" id="b4" data-s="1"><h4>Intuición</h4><p>Piensa en una cuenta bancaria. La energía entra, sale y se queda dentro. El primer principio es el saldo: lo que entra menos lo que sale es lo que cambia dentro. El segundo principio dice que hay un "impuesto" obligatorio: en cada proceso real la entropía total sube, y eso es lo que impide convertir todo el calor en trabajo.</p></div>
-<div class="zero" id="z5" data-s="1"><p class="ft">Desde cero: Conocimientos previos, repasados desde cero</p><p>Si algo de esta lista no te suena, lee antes de seguir. Cada tema lo necesita.</p>
+<div class="zero" id="z5" data-s="1"><p class="ft">Desde cero: Conocimientos previos, repasados desde cero</p><p class="lede">Si algo de esta lista no te suena, lee antes de seguir. Cada tema lo necesita.</p>
 <ul><li><strong>Presión</strong> es fuerza por unidad de área. 1 bar = 100 kPa = 0,1 MPa. 1 atm = 101,325 kPa.</li><li><strong>Temperatura absoluta</strong>: en cálculos siempre en kelvin. T (K) = T (°C) + 273,15. Una diferencia de 10 °C es también 10 K, pero una temperatura de 10 °C no es el doble de 5 °C.</li><li><strong>Volumen específico</strong> v = V/m (m³/kg) y su inverso, la densidad ρ = 1/v.</li><li><strong>Energía</strong>: U (interna), H = U + PV (entalpía), h = u + Pv por kg. La entalpía es cómoda porque en un flujo aparece siempre junta a la presión y el volumen.</li><li><strong>Notación de tablas</strong>: en la tabla de saturación las columnas f y g indican líquido saturado y vapor saturado; fg es la diferencia.</li><li><strong>Interpolación lineal</strong>: si x está entre x₁ y x₂, y = y₁ + (x − x₁)(y₂ − y₁)/(x₂ − x₁). Es el 90 % del trabajo con tablas.</li></ul></div></section>
 <nav class="pager" aria-label="Páginas"><span></span><a class="nx" href="examen.html"><small>Siguiente</small>Examen y estrategia</a></nav>
   </main>

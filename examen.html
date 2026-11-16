@@ -15,24 +15,64 @@
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -56,7 +96,7 @@ details>summary{line-height:1.7;padding-block:.5em}
 <section class="sec bloque" id="examen" data-bloque="examen" style="--tc:var(--c0);--tcs:color-mix(in srgb,var(--c0) 16%,transparent)"><div class="sh"><div class="shx"><p class="kick">Evaluación · estrategia</p><h2>El examen y cómo estudiar</h2></div></div><p>Lo que sigue es la información de la asignatura y lo que se ve en los exámenes resueltos disponibles. Nada de esto es un dato inventado: lo que no esté aquí no lo hemos podido comprobar.</p>
 <div class="box key" id="b6" data-s="1"><h4>Lo esencial</h4><ul><li><strong>Evaluación</strong>: el 80 % de la nota son los exámenes (suma de los dos parciales) y el 20 % son las prácticas.</li><li><strong>Regla de los parciales</strong>: si sacas más de 4/10 en uno de los dos parciales, esa nota se mantiene para el final.</li><li><strong>Prácticas</strong>: dos prácticas (I1 «Empleo de EES para la resolución de problemas básicos de Termodinámica Aplicada» e I2 «Análisis de ciclos mediante EES»), dos sesiones de 2 h cada una. Asistencia: 15 % por sesión. Entrega: 70 %.</li><li><strong>Dedicación</strong>: 41 h de aula, 4 h de sala de ordenadores y 9 h de evaluación.</li><li><strong>Bibliografía citable</strong>: Moran y Shapiro, *Fundamentos de termodinámica técnica* (Reverté, 2004); Zueco Jordán, *100 problemas resueltos de termodinámica aplicada* (Bellisco, 2010).</li></ul></div>
 <div class="box trap" id="b7" data-s="1"><h4>Qué suele fallar</h4><p>No hay datos sobre qué temas entran en cada parcial, ni fechas ni reglas adicionales. Por eso esta guía no reparte los temas entre parciales. Si tu curso publica esa información, úsala para ajustar el plan de estudio.</p></div>
-<div class="zero" id="z8" data-s="1"><p class="ft">Desde cero: Qué suele caer: estadística de los exámenes resueltos</p><p>Hemos contado en cuántos de los 16 problemas resueltos disponibles aparece cada tema. Un problema puede contar en varios temas, así que la suma no da 16.</p>
+<div class="zero" id="z8" data-s="1"><p class="ft">Desde cero: Qué suele caer: estadística de los exámenes resueltos</p><p class="lede">Hemos contado en cuántos de los 16 problemas resueltos disponibles aparece cada tema. Un problema puede contar en varios temas, así que la suma no da 16.</p>
 <div class="ptable"><table><tr><th>Tema</th><th>Problemas donde aparece</th><th>Qué pide típicamente</th></tr><tr><td>T1 Agua y refrigerantes</td><td>7</td><td>estados con tablas, título, procesos isobaros e isocoros</td></tr><tr><td>T2 Gases ideales</td><td>6</td><td>ley de gas ideal, tablas de aire A-22, p_r y v_r</td></tr><tr><td>T3 Sistemas cerrados</td><td>5</td><td>balance de energía, trabajo de frontera, calor</td></tr><tr><td>T4 Sistemas abiertos</td><td>7</td><td>turbina, compresor, intercambiador, tobera, balance de flujo</td></tr><tr><td>T5 Segundo principio</td><td>5</td><td>posibilidad del proceso, ciclos reversibles, COP</td></tr><tr><td>T6 Entropía y balances</td><td>8</td><td>S_gen, ΔS de procesos, balances de entropía</td></tr><tr><td>T7 Turbinas y gas</td><td>2</td><td>Brayton con aire, relación de compresión</td></tr><tr><td>T8 Motores alternativos</td><td>0</td><td>no aparece en los exámenes disponibles</td></tr><tr><td>T9 Refrigeración</td><td>2</td><td>ciclo de dos etapas con cámara flash, COP</td></tr><tr><td>T10 Mezclas y psicrometría</td><td>3</td><td>mezcla adiabática, humidificación, humedad relativa</td></tr><tr><td>T11 Combustión</td><td>1</td><td>poderes caloríficos, aire, punto de rocío</td></tr></table></div></div>
 <div class="box key" id="b9" data-s="1"><h4>Lo esencial</h4><ul><li>Los problemas de <strong>sistemas abiertos y de entropía</strong> son los que más puntúan en el material: domina el balance de energía en régimen estacionario y el de entropía antes de nada.</li><li><strong>Psicrometría</strong> aparece en tres de los problemas resueltos: domina la carta y el balance de agua.</li><li>Practica con <strong>tablas de propiedades</strong>: cada resultado tiene un signo y un orden de magnitud. Si una S_gen sale negativa o una temperatura no tiene sentido, algo falla.</li></ul></div>
 <div class="box trap" id="b10" data-s="1"><h4>Qué suele fallar</h4><ul><li>Trabajar en °C dentro de fórmulas con temperatura absoluta.</li><li>Olvidar la presión en la fracción molar del agua (usa la presión total, no 1 bar cuando el enunciado dice 1 atm).</li><li>Dar un valor negativo de entropía generada y no detenerse a mirarlo.</li><li>No justificar: en el examen, "posible" o "imposible" necesita el signo de S_gen.</li></ul></div>

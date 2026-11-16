@@ -15,24 +15,64 @@
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -56,27 +96,27 @@ details>summary{line-height:1.7;padding-block:.5em}
 <section class="sec bloque" id="t01" data-bloque="t01" style="--tc:var(--c1);--tcs:color-mix(in srgb,var(--c1) 16%,transparent)"><div class="sh"><span class="badge">1</span><div class="shx"><p class="kick">UD1 · Tema 1</p><h2>Agua y refrigerantes</h2></div></div>
 <div class="box key"><h4>Objetivos (márcalos cuando los domines)</h4><div class="checks"><label><input type="checkbox" data-chk="t01-1"> <span>Identifico si una sustancia está en líquido, mezcla o vapor.</span></label><label><input type="checkbox" data-chk="t01-2"> <span>Leo el título x en una mezcla líquido-vapor.</span></label><label><input type="checkbox" data-chk="t01-3"> <span>Sé cuándo usar la tabla de saturación y cuándo la de vapor sobrecalentado.</span></label><label><input type="checkbox" data-chk="t01-4"> <span>Interpolo en tablas de agua y refrigerante.</span></label></div></div>
 <div class="intro"><p>Un tema de tablas. Casi todos los problemas de sistemas empiezan aquí: hay que saber en qué estado está el agua o el refrigerante antes de calcular nada.</p></div>
-<div class="zero" id="z11" data-s="1"><p class="ft">Desde cero: Sustancia pura: qué significa</p><p>Una <strong>sustancia pura</strong> tiene la misma composición química en todas partes (agua, R-134a, nitrógeno). Basta con dos propiedades intensivas independientes para fijar su estado (por ejemplo, P y T, o P y v). Si la sustancia es una mezcla de fases de la misma composición, sigue siendo una sustancia pura.</p></div>
+<div class="zero" id="z11" data-s="1"><p class="ft">Desde cero: Sustancia pura: qué significa</p><p class="lede">Una <strong>sustancia pura</strong> tiene la misma composición química en todas partes (agua, R-134a, nitrógeno). Basta con dos propiedades intensivas independientes para fijar su estado (por ejemplo, P y T, o P y v). Si la sustancia es una mezcla de fases de la misma composición, sigue siendo una sustancia pura.</p></div>
 <div class="box intu" id="b12" data-s="1"><h4>Intuición</h4><p>Piensa en una olla con agua al fuego. A 1 atm el agua hierve a 100 °C. Mientras hierve, la temperatura no sube aunque sigas calentando: todo el calor se gasta en cambiar de líquido a vapor. Por eso, en la zona de dos fases, la presión y la temperatura <strong>no son independientes</strong>: si fijas una, la otra queda fijada.</p></div>
 <div class="formula" id="f13" data-s="1"><h4>Dos fases: el título</h4><p>En una mezcla líquido-vapor la fracción de masa que es vapor se llama <strong>título</strong> x. Las propiedades medias se calculan así:</p>
 <span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.1076em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0359em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.1076em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:2em;"></span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.1076em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right:0.0359em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:2em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.1076em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.1076em;">f</span><span class="mord mathnormal mtight" style="margin-right:0.0359em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span>
 <span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:2em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mord text"><span class="mord"> l</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord latin_fallback">ı</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">quido saturado</span></span><span class="mspace" style="margin-right:2em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mord text"><span class="mord"> vapor saturado</span></span></span></span></span></span></div>
 <div class="formula" id="f14" data-s="1"><h4>Tres regiones con P y T</h4><p>Con la presión P y la temperatura T se sabe en qué región está:</p>
 <ul><li>Si T &lt; T_sat(P): <strong>líquido comprimido</strong> o subenfriado. Aproximación: v ≈ v_f(T), h ≈ h_f(T).</li><li>Si T = T_sat(P): <strong>mezcla</strong> saturada. Calcula x.</li><li>Si T &gt; T_sat(P): <strong>vapor sobrecalentado</strong>. No hay título: lee directamente la tabla de vapor sobrecalentado.</li></ul></div>
-<div class="zero" id="z15" data-s="1"><p class="ft">Desde cero: Desde cero: cómo leer la tabla de saturación</p><p>La tabla de saturación de agua (Moran A-2 por temperatura, A-3 por presión) tiene estas columnas: T, P_sat, v_f, v_g, u_f, u_g, h_f, h_fg, h_g, s_f, s_fg, s_g. Las columnas f se refieren al líquido saturado y las g al vapor saturado. Para una mezcla usa la fórmula de arriba. Para el vapor sobrecalentado usa la tabla A-4 (dos entradas: P y T).</p></div>
+<div class="zero" id="z15" data-s="1"><p class="ft">Desde cero: Desde cero: cómo leer la tabla de saturación</p><p class="lede">La tabla de saturación de agua (Moran A-2 por temperatura, A-3 por presión) tiene estas columnas: T, P_sat, v_f, v_g, u_f, u_g, h_f, h_fg, h_g, s_f, s_fg, s_g. Las columnas f se refieren al líquido saturado y las g al vapor saturado. Para una mezcla usa la fórmula de arriba. Para el vapor sobrecalentado usa la tabla A-4 (dos entradas: P y T).</p></div>
 <div class="box trap" id="b16" data-s="1"><h4>Qué suele fallar</h4><ul><li>Usar v_g cuando el estado es líquido comprimido (el líquido casi no cambia de volumen).</li><li>Confundir la presión de saturación con la presión de la mezcla: si P = P_sat(T) estás en mezcla, no en vapor.</li><li>Interpolar linealmente v entre dos temperaturas lejanas. Para v_g, la interpolación en ln(v) es más fiable. En examen, interpola como indique la tabla o haz la interpolación en la columna que mejor se comporte.</li></ul></div>
 <details class="grupo" open><summary>Trucos de clase · Tema 1 · Estado de una sustancia pura</summary><p>Con dos propiedades independientes (por ejemplo P y T, o P y v) queda fijado el estado de una sustancia pura simple y compresible.</p>
 <div class="box intu" id="b17" data-s="1"><h4>Intuición</h4><p>Imagina agua en una olla. Mientras hierve a 1 atm, la temperatura se queda en 100 °C aunque sigas calentando: el calor se usa en cambiar de líquido a vapor. Por eso, dentro de la zona de dos fases, P y T no son independientes. <strong>Trucos</strong></p>
 <ol><li>Decide primero la región y después calcula. Compara T con T_sat(P): si T &lt; T_sat es líquido comprimido; si T = T_sat es mezcla y hay que calcular el título; si T &gt; T_sat es vapor sobrecalentado y no hay título.</li><li>Título = vapor / total: x = (v − v_f) / (v_g − v_f). Es la regla de la palanca en el diagrama P-v o T-v.</li><li>Líquido comprimido (aproximación de la diapositiva): v ≈ v_f(T) y h ≈ h_f(T) + v_f·(P − P_sat(T)). No uses v_g aquí.</li><li>En el diagrama P-v: a la izquierda líquido, dentro de la campana mezcla, a la derecha vapor. El punto crítico es donde desaparece la diferencia entre líquido y vapor.</li><li>Las tablas en inglés usan punto decimal. Antes de copiar un valor, comprueba el separador.</li></ol></div>
 <div class="box trap" id="b18" data-s="1"><h4>Qué suele fallar</h4><p>Usar v_g cuando el estado es líquido comprimido; confundir P_sat con la presión de la mezcla; interpolar linealmente v_g entre temperaturas muy separadas.</p></div></details>
 <!--deep--><h3 id="t1-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
-<h4>1. Fases de una sustancia pura</h4>
+<h4><span class="hn">1</span>Fases de una sustancia pura</h4>
 <div class="box key deepnote"><b>Idea clave.</b> una sustancia pura en equilibrio líquido-vapor tiene una relación fija entre presión y temperatura de saturación. Por eso basta conocer dos propiedades independientes para fijar el estado.</div>
 <ul><li><b>Líquido comprimido</b> (o subenfriado): líquido a presión mayor que la de saturación a su temperatura.</li><li><b>Mezcla saturada</b>: líquido y vapor coexisten a \(T\) y \(P\) de saturación.</li><li><b>Vapor sobrecalentado</b>: vapor a temperatura mayor que la de saturación.</li></ul>
 <details class="dem"><summary><span class="pn">∴</span>Título de la mezcla</summary><div class="inner"><p>El título \(x\) es la fracción de masa que es vapor. Las propiedades de la mezcla se calculan con los valores de líquido saturado (f) y vapor saturado (g):</p>
 <div class="eqd">\[v=v_f+x\,(v_g-v_f)\qquad h=h_f+x\,h_{fg}\qquad s=s_f+x\,s_{fg}\]</div>
 <div class="box trap deepnote"><b>Cuidado.</b> El título solo tiene sentido dentro de la campana. Fuera de ella, \(x\) no existe: es líquido comprimido o vapor sobrecalentado.</div></div></details>
-<h4>2. Cómo usar las tablas</h4>
+<h4><span class="hn">2</span>Cómo usar las tablas</h4>
 <ol class="pasos"><li>Identifica la región con \(P\) y \(T\) (o \(P\) y \(v\)).</li><li>Si es mezcla, calcula \(x\) con \(v\), \(h\) o \(u\).</li><li>Si es vapor sobrecalentado, lee la tabla de vapor a la presión dada e interpola con \(T\).</li><li>Si es líquido comprimido, usa \(v\approx v_f(T)\) y \(h\approx h_f(T)\).</li></ol>
 </div><!--/deep--><article class="ex ejemplo" id="ex19" data-s="1"><div class="tags"><span class="tag">Ejemplo resuelto</span></div><h3>Mezcla a 200 °C</h3>
 <div class="box enun"><h4>Enunciado</h4><p>Agua a 200 °C con v = 0,05 m³/kg. Calcula el título x y la entalpía específica. Datos de saturación a 200 °C (tabla de saturación): v_f = 0,001157 m³/kg, v_g = 0,12736 m³/kg, h_f = 852,45 kJ/kg, h_fg = 1939,8 kJ/kg.</p></div>
