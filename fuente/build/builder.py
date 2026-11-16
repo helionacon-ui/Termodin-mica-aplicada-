@@ -778,7 +778,7 @@ def pagina_maestra(secciones, res):
 <body data-version="{FECHA}">
 <a class="skip" href="#principal">Saltar al contenido</a>
 <div class="hub-bar">
-  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA</a>
+  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Apuntes · GIEyA</a>
   <span class="fecha-cab">Actualizada el {FECHA_CORTA}</span>
   <button class="btn theme-btn" type="button" id="tema" aria-label="Cambiar tema claro/oscuro">Tema</button>
 </div>
@@ -847,7 +847,7 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
 <body data-index="search-index.json" data-page="{nombre_archivo}">
 <a class="skip" href="#principal">Saltar al contenido</a>
 <div class="hub-bar">
-  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Guías para aprobar · GIEyA</a>
+  <a class="hub-link" href="https://helionacon-ui.github.io/GIEIA-UPCT/">← Apuntes · GIEyA</a>
   <span class="fecha-cab">Actualizada el {FECHA_CORTA}</span>
   <button class="btn theme-btn" type="button" id="tema" aria-label="Cambiar tema claro/oscuro">Tema</button>
 </div>
