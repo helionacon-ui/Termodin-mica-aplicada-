@@ -91,4 +91,64 @@ M.reg('ta-t11',M.barras({title:'Combustión: productos del metano con exceso de 
  val:function(i,e){var m=[1,2,2*e,7.52*(1+e)],s=m[0]+m[1]+m[2]+m[3];return m[i]/s;},col:function(i){return ['hl','f','ok','mut'][i];},lab:function(i){return ['CO₂','H₂O','O₂','N₂'][i];},
  read:function(e){return ['CH₄ + 2(1+e)(O₂ + 3,76N₂) → CO₂ + 2H₂O + 2e·O₂ + 7,52(1+e)N₂','exceso de aire e = '+nf(e*100,0)+' %    dosado relativo λ = '+nf(1+e,2)];},
  caps:[[6,'Con aire estequiométrico (e = 0) todo el oxígeno se consume: los productos son CO₂, H₂O y el nitrógeno que acompaña al aire.'],[12,'Al añadir exceso de aire aparece O₂ sobrante y aumenta el N₂: los productos se diluyen y la fracción de CO₂ baja.'],[99,'Un poco de exceso asegura la combustión completa; demasiado enfría la llama y se pierde calor por chimenea.']]}));
+/* ---- animaciones de partículas: U frente a V, segundo principio y proceso adiabático ---- */
+function rnd(i,k){var x=Math.sin(i*127.1+k*311.7)*43758.5453;return x-Math.floor(x);}
+function tri(p){p=((p%2)+2)%2;return p<1?p:2-p;}
+function mono(D,s,x,y,c,sz,a){D.text(s,x,y,{mono:true,s:sz||17,c:c,a:a||'left'});}
+
+/* Energía interna frente a volumen: gas ideal y gas real a T constante */
+M.reg('ta-uv',M.base({title:'Energía interna y volumen (T constante)',H:600,dur:18,
+ alt:'Dos depósitos que se expanden a temperatura constante: en el gas ideal la energía interna no cambia; en el gas real aumenta.',
+ caps:[[6,'Se expande un gas a temperatura constante. En el gas ideal las moléculas no interactúan: la energía interna solo depende de T y no cambia.'],[12,'En un gas real las moléculas se atraen. Al separarlas hay que vencer esa atracción: la energía potencial sube y U aumenta aunque T no cambie.'],[99,'Por eso en un gas ideal <i>du = c<sub>v</sub>·dT</i> siempre, mientras que en un gas real (van der Waals) <i>U = U(T) − a·n²/V</i> depende también del volumen.']]},
+ function(D,t){var u=U.pp(t,18),V=1+u,a=0.37,x0=40,wb=280*V,N=26,i,j;
+  D.text('Ideal:  U = U(T)',170,74,{s:17,a:'center',c:C.f,it:true});D.text('Real:  U = U(T) − a·n^{2}/V',460,74,{s:17,a:'center',c:C.m,it:true});
+  function caja(y,h,col,real){var P=[];D.rect(x0,y,wb,h,C.ax,RG(col,.07),2);D.rect(x0+wb-4,y-5,9,h+10,null,C.ax);
+   for(i=0;i<N;i++){P.push([x0+10+tri(rnd(i,real?5:1)*2+t*(0.05+0.09*rnd(i,real?6:2)))*(wb-26),y+10+tri(rnd(i,real?7:3)*2+t*(0.06+0.1*rnd(i,real?8:4)))*(h-20)]);}
+   if(real){for(i=0;i<N;i++)for(j=i+1;j<N;j++){var d=Math.hypot(P[i][0]-P[j][0],P[i][1]-P[j][1]);if(d<24)D.line(P[i][0],P[i][1],P[j][0],P[j][1],C.bad,2.4,null,.9);else if(d<74)D.line(P[i][0],P[i][1],P[j][0],P[j][1],C.ok,1.3,null,clamp((74-d)/40,0.15,.8));}}
+   for(i=0;i<N;i++)D.dot(P[i][0],P[i][1],5,col);}
+  D.text('GAS IDEAL',x0,112,{s:16,c:C.f,bold:true});caja(122,130,C.f,false);
+  mono(D,'V = '+nf(V,2)+' V₀',x0,280,C.f);mono(D,'U = '+nf(1,4),W/2,280,C.f,17,'center');mono(D,'ΔU = +'+nf(0,4),W-40,280,C.f,17,'right');
+  D.text('GAS REAL',x0,338,{s:16,c:C.m,bold:true});D.line(380,326,408,326,C.ok,2);D.text('atracción',414,331,{s:14,c:C.ok});D.line(500,326,528,326,C.bad,2.6);D.text('repulsión',534,331,{s:14,c:C.bad});
+  caja(348,130,C.m,true);var dU=a*(1-1/V);
+  mono(D,'V = '+nf(V,2)+' V₀',x0,506,C.hl);mono(D,'U = '+nf(1+dU,4),W/2,506,C.hl,17,'center');mono(D,'ΔU = +'+nf(dU,4),W-40,506,C.hl,17,'right');
+  D.text('U en unidades de U(V₀). El émbolo se mueve despacio para mantener T constante.',W/2,548,{s:14,a:'center',c:C.mut});}));
+
+/* Segundo principio: el calor pasa del cuerpo caliente al frío y la entropía total aumenta */
+M.reg('ta-s2',M.base({title:'El calor va de caliente a frío: ΔS ≥ 0',H:620,dur:18,
+ alt:'Dos cuerpos a 600 K y 300 K separados por una pared conductora igualan su temperatura en 450 K; la entropía total aumenta.',
+ caps:[[5,'Dos cuerpos iguales, uno a 600 K y otro a 300 K, se ponen en contacto a través de una pared conductora. El conjunto está aislado del exterior.'],[11,'El calor pasa solo del caliente al frío. El caliente pierde entropía (Q entre una T alta) y el frío gana más (el mismo Q entre una T baja): la suma es positiva.'],[99,'Al igualarse en 450 K: <i>ΔS<sub>total</sub> = C·ln(450²/(600·300)) = +0,118·C &gt; 0</i>. El proceso inverso daría ΔS &lt; 0: no ocurre nunca por sí solo.']]},
+ function(D,t){var s=Math.max(0,t-1.5),e=Math.exp(-s/3.2),Th=450+150*e,Tc=450-150*e,x0=40,y0=112,w=560,h=210,xm=x0+w/2,N=22,i;
+  function G(sg){var n=24,acc=0,k;for(k=0;k<n;k++){var sm=s*(k+0.5)/n;acc+=Math.sqrt((450+sg*150*Math.exp(-sm/3.2))/450);}return Math.min(t,1.5)*Math.sqrt((450+sg*150)/450)+acc*s/n;}
+  var gh=G(1),gc=G(-1);
+  D.text('CALIENTE',x0+w/4,y0-12,{s:17,a:'center',c:C.bad,bold:true});D.text('FRÍO',x0+3*w/4,y0-12,{s:17,a:'center',c:C.f,bold:true});
+  D.rect(x0,y0,w/2,h,null,RG(C.bad,.06+.2*e));D.rect(xm,y0,w/2,h,null,RG(C.f,.06+.2*e));D.rect(x0,y0,w,h,C.ax,null,3);D.line(xm,y0,xm,y0+h,C.ax,3,[7,5]);
+  for(i=0;i<N;i++){var xa=x0+9+tri(rnd(i,11)*2+gh*(0.1+0.16*rnd(i,12)))*(w/2-18),ya=y0+9+tri(rnd(i,13)*2+gh*(0.12+0.18*rnd(i,14)))*(h-18);D.dot(xa,ya,6,C.m);D.dot(xa,ya,6,C.bad,e);
+   var xb=xm+9+tri(rnd(i,15)*2+gc*(0.1+0.16*rnd(i,16)))*(w/2-18),yb=y0+9+tri(rnd(i,17)*2+gc*(0.12+0.18*rnd(i,18)))*(h-18);D.dot(xb,yb,6,C.m);D.dot(xb,yb,6,C.f,e);}
+  if(e>0.04&&t>1.5){for(i=0;i<3;i++){var yy=y0+50+i*55,ph=(t*0.9+i*0.33)%1,xx=xm-34+ph*44;D.arrow(xx,yy,xx+24,yy,C.hl,1.5+3*e);}D.text('Q',xm,y0+h+22,{s:17,a:'center',c:C.hl,it:true});}
+  D.text('pared conductora',xm,y0+h+22+(e>0.04&&t>1.5?20:0),{s:13,a:'center',c:C.mut});
+  mono(D,'T = '+nf(Th,0)+' K',x0+w/4,y0+h+30,C.bad,19,'center');mono(D,'T = '+nf(Tc,0)+' K',x0+3*w/4,y0+h+30,C.f,19,'center');
+  var by=500,bh=96,bw=110;D.rect(x0+30,by-bh,bw,bh,C.ax,null,1.4);D.rect(x0+30,by-bh*Th/600,bw,bh*Th/600,null,C.bad);D.rect(W-40-30-bw,by-bh,bw,bh,C.ax,null,1.4);D.rect(W-40-30-bw,by-bh*Tc/600,bw,bh*Tc/600,null,C.f);
+  var sh=Math.log(Th/600),sc=Math.log(Tc/300),st=sh+sc;
+  D.text('ΔS_{caliente} = '+nf(sh,3)+'·C',W/2,by-74,{s:16,a:'center',c:C.bad});D.text('ΔS_{frío} = +'+nf(sc,3)+'·C',W/2,by-46,{s:16,a:'center',c:C.f});
+  D.line(W/2-92,by-34,W/2+92,by-34,C.ax,1.4);D.text('ΔS_{total} = +'+nf(st,3)+'·C',W/2,by-6,{s:21,a:'center',c:C.y,bold:true});
+  D.text('C: capacidad calorífica de cada cuerpo.  ΔS = C·ln(T_{final}/T_{inicial})',W/2,by+52,{s:14,a:'center',c:C.mut});}));
+
+/* Proceso adiabático reversible de un gas ideal */
+M.reg('ta-ad',M.base({title:'Proceso adiabático: p·V^{γ} = cte',H:640,dur:18,
+ alt:'Un cilindro aislado con émbolo: al comprimir el gas sube la temperatura y el estado recorre la curva adiabática, más inclinada que la isoterma.',
+ caps:[[6,'El cilindro está aislado: Q = 0. Al comprimir, todo el trabajo se queda en el gas como energía interna y la temperatura sube.'],[12,'Por eso la adiabática es más inclinada que la isoterma: la presión sube por dos motivos, menos volumen y más temperatura.'],[99,'Para un gas ideal con γ constante: <i>p·V<sup>γ</sup> = cte</i> y <i>T·V<sup>γ−1</sup> = cte</i>. Al expandir ocurre lo contrario: el gas hace trabajo a costa de su energía y se enfría.']]},
+ function(D,t){var u=U.pp(t,18),V=lerp(1,0.4,u),g=1.4,P=Math.pow(V,-g),T=Math.pow(V,1-g),cx=150,xi=cx-62,wi=124,yb=310,hg=190*V,yp=yb-hg,N=30,i,hot=clamp((T-1)/0.44,0,1);
+  D.rect(xi-14,90,14,yb-90+14,C.ax,RG(C.mut,.3),1.6);D.rect(xi+wi,90,14,yb-90+14,C.ax,RG(C.mut,.3),1.6);D.rect(xi-14,yb,wi+28,14,C.ax,RG(C.mut,.3),1.6);
+  D.rect(xi,yp,wi,hg,null,RG(C.f,.1));D.rect(xi,yp,wi,hg,null,RG(C.bad,.22*hot));
+  for(i=0;i<N;i++){var x=xi+6+tri(rnd(i,21)*2+t*(0.14+0.2*rnd(i,22)))*(wi-12),y=yp+6+tri(rnd(i,23)*2+t*(0.16+0.24*rnd(i,24)))*(hg-12);D.dot(x,y,4.5,C.f);D.dot(x,y,4.5,C.bad,hot);}
+  D.rect(xi,yp-16,wi,16,C.ax,C.mut,1.6);D.rect(cx-13,yp-16-70,26,70,C.ax,RG(C.mut,.6),1.6);
+  D.text('aislante',xi-22,84,{s:14,c:C.mut,a:'center'});D.text('Q = 0',cx,yb+38,{s:17,a:'center',c:C.hl,bold:true});
+  var rx=300,ry=118;mono(D,'V   = '+nf(V,3)+' V₀',rx,ry,C.w,19);mono(D,'p   = '+nf(P,3)+' p₀',rx,ry+34,C.w,19);mono(D,'T   = '+nf(T,3)+' T₀',rx,ry+68,hot>0.02?C.bad:C.w,19);
+  D.line(rx-6,ry+84,rx+250,ry+84,C.ax,1.6);mono(D,'p·V^{γ} = '+nf(P*Math.pow(V,g),3),rx,ry+116,C.y,19);
+  D.text('γ = c_{p}/c_{v} = 1,4 (aire)',rx,ry+156,{s:16,c:C.mut});D.text(T>1.01?'más caliente que al inicio':'estado inicial',rx,ry+186,{s:17,c:T>1.01?C.bad:C.mut,it:true});
+  var A=U.axes(D,{xr:[0,1.1],yr:[0,4],xt:[0.2,0.4,0.6,0.8,1],yt:[1,2,3,4],yd:0,xl:'V/V₀',yl:'p/p₀',grid:true},{x:74,y:392,w:500,h:190});
+  U.clipA(D,A,function(){U.plotf(D,A,function(v){return v<0.3?NaN:1/v;},C.f,2,.75);U.plotf(D,A,function(v){return v<0.3?NaN:Math.pow(v,-g);},C.hl,1.6,.4);
+   var pts=[],k;for(k=0;k<=40;k++){var vv=lerp(1,V,k/40);pts.push([A.X(vv),A.Y(Math.pow(vv,-g))]);}D.path(pts,C.hl,4);});
+  D.dot(A.X(V),A.Y(P),7,C.y);D.ring(A.X(V),A.Y(P),7,C.bg,1.5);
+  D.text('adiabática  p·V^{γ} = cte',A.X(0.44),A.Y(3.55),{s:15,c:C.hl});D.text('isoterma  p·V = cte',A.X(0.5),A.Y(0.85),{s:15,c:C.f});}));
 })();
