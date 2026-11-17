@@ -795,8 +795,6 @@ def pagina_maestra(secciones, res):
 {cuerpo_}
   </main>
 </div>
-<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27. Última actualización: {FECHA_LARGA}.</div>
-<div>Las soluciones son de referencia y se verifican con código; los simuladores son aproximaciones didácticas.</div></footer>
 <script type="application/json" id="sindex">{idx}</script>
 <script>
 {js}
@@ -866,7 +864,6 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
 {pager}
   </main>
 </div>
-<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27. Última actualización: {FECHA_LARGA}.</div></footer>
 <script src="sims.js" defer></script>
 <script src="app.js" defer></script>
 </body>
