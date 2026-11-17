@@ -43,6 +43,7 @@ SITE = os.path.join(ROOT, 'site')
 KATEX = '/opt/npm-tools/node_modules/katex/dist'
 FECHA = '9 de noviembre de 2026'
 FECHA_CORTA = '9 nov 2026'
+FECHA_LARGA = '9 de noviembre de 2026'
 PDFDIR = os.path.join(BUILD, 'pdf')
 TITULO = 'Termodinámica Aplicada'
 # Grupos del índice y color por bloque, con la misma estructura que la guía de referencia.
@@ -794,8 +795,8 @@ def pagina_maestra(secciones, res):
 {cuerpo_}
   </main>
 </div>
-<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27 · Guía de estudio.</div>
-<div>Última actualización: {FECHA}. Las soluciones son de referencia y se verifican con código; los simuladores son aproximaciones didácticas.</div></footer>
+<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27. Última actualización: {FECHA_LARGA}.</div>
+<div>Las soluciones son de referencia y se verifican con código; los simuladores son aproximaciones didácticas.</div></footer>
 <script type="application/json" id="sindex">{idx}</script>
 <script>
 {js}
@@ -865,8 +866,7 @@ def pagina_sitio(bid, secciones_por_bloque, res, pag_map):
 {pager}
   </main>
 </div>
-<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27.</div>
-<div>Última actualización: {FECHA}.</div></footer>
+<footer class="foot"><div>{TITULO} · Grado en Ingeniería Biomédica · curso 2026-27. Última actualización: {FECHA_LARGA}.</div></footer>
 <script src="sims.js" defer></script>
 <script src="app.js" defer></script>
 </body>
