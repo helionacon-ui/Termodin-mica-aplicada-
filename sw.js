@@ -1,7 +1,7 @@
 // Guarda la guía para poder leerla sin conexión.
 // Las páginas se piden primero a la red, así que una actualización se ve en cuanto hay cobertura.
-const CACHE = 'termodinamica-aplicada-v1-tip3';
-const CORE = ["./", "./anim-manim.js", "./anim-temas.js", "./app.js", "./asig-nav.js", "./autoevaluacion.html", "./demos.html", "./examen.html", "./examenes.html", "./formulario.html", "./glosario.html", "./icon-192.png", "./icon-512.png", "./index.html", "./katex.css", "./manifest.webmanifest", "./piel.css?v=3", "./piel.js?v=3", "./plan.html", "./practicas.html", "./sims.js", "./simulacros.html", "./style.css", "./t01.html", "./t02.html", "./t03.html", "./t04.html", "./t05.html", "./t06.html", "./t07.html", "./t08.html", "./t09.html", "./t10.html", "./t11.html", "./trucos.html"];
+const CACHE = 'termodinamica-aplicada-v1-tip4';
+const CORE = ["./", "./anim-manim.js", "./anim-temas.js", "./app.js", "./asig-nav.js", "./autoevaluacion.html", "./demos.html", "./examen.html", "./examenes.html", "./formulario.html", "./glosario.html", "./icon-192.png", "./icon-512.png", "./index.html", "./katex.css", "./manifest.webmanifest", "./piel.css?v=4", "./piel.js?v=4", "./plan.html", "./practicas.html", "./sims.js", "./simulacros.html", "./style.css", "./t01.html", "./t02.html", "./t03.html", "./t04.html", "./t05.html", "./t06.html", "./t07.html", "./t08.html", "./t09.html", "./t10.html", "./t11.html", "./trucos.html"];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE)
     .then(c => Promise.all(CORE.map(u => c.add(new Request(u, {mode: u.startsWith('http') ? 'no-cors' : 'same-origin'})).catch(() => {}))))
