@@ -1,70 +1,35 @@
-// Caché sin conexión de la guía. Versión: 9 nov 2026
-const VERSION = 'termo-2026-11-17-anim3';
-const ARCHIVOS = [
-  './',
-  'index.html',
-  'style.css',
-  'katex.css',
-  'app.js',
-  'sims.js',
-  'search-index.json',
-  'manifest.json',
-  'icon-192.png',
-  'icon-512.png',
-  'autoevaluacion.html',
-  'demos.html',
-  'examen.html',
-  'examenes.html',
-  'formulario.html',
-  'glosario.html',
-  'plan.html',
-  'practicas.html',
-  'simulacros.html',
-  't01.html',
-  't02.html',
-  't03.html',
-  't04.html',
-  't05.html',
-  't06.html',
-  't07.html',
-  't08.html',
-  't09.html',
-  't10.html',
-  't11.html',
-  'trucos.html',
-  'fonts/KaTeX_AMS-Regular.woff2',
-  'fonts/KaTeX_Caligraphic-Bold.woff2',
-  'fonts/KaTeX_Caligraphic-Regular.woff2',
-  'fonts/KaTeX_Fraktur-Bold.woff2',
-  'fonts/KaTeX_Fraktur-Regular.woff2',
-  'fonts/KaTeX_Main-Bold.woff2',
-  'fonts/KaTeX_Main-BoldItalic.woff2',
-  'fonts/KaTeX_Main-Italic.woff2',
-  'fonts/KaTeX_Main-Regular.woff2',
-  'fonts/KaTeX_Math-BoldItalic.woff2',
-  'fonts/KaTeX_Math-Italic.woff2',
-  'fonts/KaTeX_SansSerif-Bold.woff2',
-  'fonts/KaTeX_SansSerif-Italic.woff2',
-  'fonts/KaTeX_SansSerif-Regular.woff2',
-  'fonts/KaTeX_Script-Regular.woff2',
-  'fonts/KaTeX_Size1-Regular.woff2',
-  'fonts/KaTeX_Size2-Regular.woff2',
-  'fonts/KaTeX_Size3-Regular.woff2',
-  'fonts/KaTeX_Size4-Regular.woff2',
-  'fonts/KaTeX_Typewriter-Regular.woff2'
-];
-self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(ARCHIVOS)).then(() => self.skipWaiting()));
+// Guarda la guía para poder leerla sin conexión.
+// Las páginas se piden primero a la red, así que una actualización se ve en cuanto hay cobertura.
+const CACHE = 'termodinamica-aplicada-v1';
+const CORE = ["./", "./anim-manim.js", "./anim-temas.js", "./app.js", "./asig-nav.js", "./autoevaluacion.html", "./demos.html", "./examen.html", "./examenes.html", "./formulario.html", "./glosario.html", "./icon-192.png", "./icon-512.png", "./index.html", "./katex.css", "./manifest.webmanifest", "./piel.css", "./piel.js", "./plan.html", "./practicas.html", "./sims.js", "./simulacros.html", "./style.css", "./t01.html", "./t02.html", "./t03.html", "./t04.html", "./t05.html", "./t06.html", "./t07.html", "./t08.html", "./t09.html", "./t10.html", "./t11.html", "./trucos.html"];
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE)
+    .then(c => Promise.all(CORE.map(u => c.add(new Request(u, {mode: u.startsWith('http') ? 'no-cors' : 'same-origin'})).catch(() => {}))))
+    .then(() => self.skipWaiting()));
 });
-self.addEventListener('activate', (e) => {
+self.addEventListener('activate', e => {
   e.waitUntil(caches.keys()
-    .then((ks) => Promise.all(ks.filter((k) => k !== VERSION).map((k) => caches.delete(k))))
+    .then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))
     .then(() => self.clients.claim()));
 });
-self.addEventListener('fetch', (e) => {
-  if (e.request.method !== 'GET') return;
-  e.respondWith(caches.match(e.request).then((hit) => hit || fetch(e.request).then((resp) => {
-    if (resp.ok) { const copia = resp.clone(); caches.open(VERSION).then((c) => c.put(e.request, copia)).catch(() => {}); }
-    return resp;
-  }).catch(() => caches.match('index.html'))));
+self.addEventListener('message', e => { if (e.data === 'saltar') self.skipWaiting(); });
+self.addEventListener('fetch', e => {
+  const req = e.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
+  const esPagina = req.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/');
+  if (esPagina) {
+    e.respondWith(fetch(req)
+      .then(r => { const cp = r.clone(); caches.open(CACHE).then(c => c.put(req, cp)); return r; })
+      .catch(() => caches.match(req, {ignoreSearch: true}).then(h => h || caches.match('./index.html'))));
+    return;
+  }
+  e.respondWith(caches.match(req).then(hit => {
+    const red = fetch(req).then(r => {
+      if (r && (r.ok || r.type === 'opaque')) { const cp = r.clone(); caches.open(CACHE).then(c => c.put(req, cp)); }
+      return r;
+    }).catch(() => hit);
+    return hit || red;
+  }));
 });
